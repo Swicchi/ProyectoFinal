@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/xampp/htdocs/ProyectoFinal/controller/SiteController.php</file>
+            <file>file:/C:/xampp/htdocs/ProyectoFinal/controller/CoreController.php</file>
+            <file>file:/C:/xampp/htdocs/ProyectoFinal/view/index.html</file>
+            <file>file:/C:/xampp/htdocs/ProyectoFinal/view/main.php</file>
+            <file>file:/C:/xampp/htdocs/ProyectoFinal/index.php</file>
+            <file>file:/C:/xampp/htdocs/ProyectoFinal/view/UserView/agregar.php</file>
+            <file>file:/C:/xampp/htdocs/ProyectoFinal/model/UserModel/UserDAO.php</file>
+            <file>file:/C:/xampp/htdocs/ProyectoFinal/model/UserModel/userRole.php</file>
+            <file>file:/C:/xampp/htdocs/ProyectoFinal/controller/UserController.php</file>
+            <file>file:/C:/xampp/htdocs/ProyectoFinal/view/layout.php</file>
+            <file>file:/C:/xampp/htdocs/ProyectoFinal/model/conexionDB.php</file>
+            <file>file:/C:/xampp/htdocs/ProyectoFinal/model/UserModel/Usuario.php</file>
+        </group>
+    </open-files>
+</project-private>
