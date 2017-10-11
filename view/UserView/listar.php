@@ -1,13 +1,4 @@
- <?php
-     $link=mysqli_connect("localhost","root","","bdfinal");
-         $sql="SELECT * FROM user NATURAL JOIN userrole;";
-         $result=mysqli_query($link, $sql);
-         while($row=mysqli_fetch_array($result)){
-             $data[]=$row;
-            }
-    
-            mysqli_close($link);                             
-?>  
+
 <script>
 function validar(){
 	     //Ingresamos un mensaje a mostrar
@@ -41,8 +32,8 @@ function validar(){
                                 <thead>
                                     <tr>
                                         <th>Nombre Usuario</th>
-                                        <th>Rol</th>
                                         <th>Clave</th>
+                                        <th>Rol</th>
                                         <th>Acción Eliminar</th>
                                         <th>Acción Editar</th>
                                     </tr>
@@ -53,14 +44,10 @@ function validar(){
                                         <td><?php echo  $value['user'];?></td>
                                          <td><?php echo  $value['password'];?></td>
                                        <td><?php echo  $value['name'];?></td>
-                                       <td><a class="btn btn-success btn-lg"  href="index.php?id=<?php echo  $value['id_user'];?>&accion=eliminar" onclick="return validar();">Eliminar</a></td>
-                                       <td><a class="btn btn-success btn-lg"  href="index.php?id=<?php echo  $value['id_user'];?>&accion=editar">Editar</a></td>
+                                       <td><a class="btn btn-success btn-lg"  href="index.php?id=<?php echo  $value['id_user'];?>&action=eliminarUsuario" onclick="return validar();">Eliminar</a></td>
+                                       <td><a class="btn btn-success btn-lg"  href="index.php?id=<?php echo  $value['id_user'];?>&action=editarUsuario">Editar</a></td>
                                     </tr>
                                       <?php endforeach;?>
-
-
-                                       
-                                    
                                     </tbody>
                                 </table>
                             </div>

@@ -3,7 +3,7 @@
 class CoreController {
     
     public function __construct(){
-  
+        
     }
     
     /* METODO QUE CARGA LAS PARTES PRINCIPALES DE LA PAGINA WEB

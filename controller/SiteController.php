@@ -1,6 +1,6 @@
 <?php
 
-require 'controller/CoreController.php';
+require_once  'controller/CoreController.php';
 
 class SiteController extends CoreController {
 

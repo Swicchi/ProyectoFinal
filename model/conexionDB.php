@@ -42,19 +42,17 @@ class conexionDB {
       OUTPUT: array con los resultados de una consulta
      */
     public function fetch_assoc($result) {
-        if (!is_resource($result))
-            return false;
+        
         return mysqli_fetch_assoc($result);
     }
      public function fetch_array($result) {
-        if (!is_resource($result))
-            return false;
+       
         return mysqli_fetch_array($result);
     }
 
     /* METODO PARA CERRAR LA CONEXION A LA BASE DE DATOS */
     public function disconnect() {
-        mysqli_close();
+        mysqli_close($this->conexion);
     }
 }
 

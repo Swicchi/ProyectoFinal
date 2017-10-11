@@ -11,24 +11,24 @@
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                Agregar Nuevo Usuario
+                Modificar Nuevo Usuario
             </div>
             <div class="panel-body">
                 <div class="row">
                     <div class="col-lg-6">
-                        <form role="form" action="index.php?accion=nuevoUsuario" method="post">
+                        <form role="form" action="index.php?accion=modificarUsuario" method="post">
                             <div class="center-block">
                             <div class="control-group">
                                 <div class="form-group floating-label-form-group controls">
                                     <label>Nombre Usuario</label>
-                                    <input class="form-control" id="user" name="user" type="text" placeholder="Ingrese nombre de usuario" required >
+                                    <input class="form-control" id="user" name="user" type="text" value="<?php echo  $user1['user']; ?>" placeholder="Ingrese nombre de usuario" required >
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="control-group">
                                 <div class="form-group floating-label-form-group controls">
                                     <label>Clave Usuario</label>
-                                    <input class="form-control" id="pass" name="pass"  minlength="8" max="14" type="password" placeholder="Ingrese clave de usuario" required >
+                                    <input class="form-control" id="pass" name="pass"  minlength="8" max="14" value="<?php echo  $user1['password']; ?>" type="password" placeholder="Ingrese clave de usuario" required >
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
@@ -36,12 +36,16 @@
                                
                                 <label>Seleccione rol</label>
                                 <select id="rol" name="rol" class="form-control">
-                                   <?php foreach ($data as $rol):?>
-                                    <option value="<?php echo  $rol['id_userrole']; ?>"><?php echo $rol['name']; ?></option>
-                                    <?php endforeach;?> 
+                                     <option value="<?php echo  $user1['id_userrole']; ?>"><?php echo $user1['name']; ?></option>
+                                 <?php foreach ($data as $rol):?>
+                                     <?php if($rol['id_userrole']!=$user1['id_userrole']){?>
+                                              <option value="<?php echo  $rol['id_userrole']; ?>"><?php echo $rol['name']; ?></option>
+                                  <?php } ?>   
+                               <?php endforeach;?> 
                                 </select>
                             </div>
-                           
+                                <input class="form-control" id="id" name="id"   value="<?php echo  $user1['id_user']; ?>" type="hidden"  required >
+                          
                             <button type="submit" class="btn btn-default">Submit Button</button>
                             <button type="reset" class="btn btn-default">Reset Button</button>
                         </div>

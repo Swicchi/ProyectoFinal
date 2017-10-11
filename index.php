@@ -13,11 +13,19 @@ $accion = !isset($_GET['action']) ? '' : $_GET['action'];
 if (count($_POST) > 0) {
     if ($_GET["accion"] == "nuevoUsuario") {
         //Login
-         require 'controller/UserController.php';
+            require 'controller/UserController.php';
             //se instancia al controlador
             $mvc = new UserController();
             $mvc->agregarNuevoUsuario();
-}}/* else if ($_POST['action'] == "guardar_cliente") {
+} else  if ($_GET["accion"] == "modificarUsuario") {
+        //Login
+            require 'controller/UserController.php';
+            //se instancia al controlador
+            $mvc = new UserController();
+            $mvc->modificarUsuario();
+}
+
+    }else{/* else if ($_POST['action'] == "guardar_cliente") {
         //Ingreso de clientes
         require 'app/controller/ClienteController.php';
         //se instancia al controlador
@@ -62,13 +70,27 @@ if (count($_POST) > 0) {
             //se instancia al controlador
             $mvc = new UserController();
             $mvc->agregarUsuario();
+        } else if ($accion == 'editarUsuario') {
+            //Gesti�n de clientes
+
+            require 'controller/UserController.php';
+            //se instancia al controlador
+            $mvc = new UserController();
+            $mvc->editarUsuario();
+        } else if ($accion == 'eliminarUsuario') {
+            //Gesti�n de clientes
+
+            require 'controller/UserController.php';
+            //se instancia al controlador
+            $mvc = new UserController();
+            $mvc->borrarUsuario();
         } else if ($accion == 'listarUsuario') {
             //Gesti�n de clientes
              require 'controller/UserController.php';
             //se instancia al controlador
             $mvc = new UserController();
             $mvc->listarUsuarios();
-        } /*else if ($accion == 'listar_cliente') {
+    }} /*else if ($accion == 'listar_cliente') {
             //Lista clientes
 
             require 'app/controller/ClienteController.php';

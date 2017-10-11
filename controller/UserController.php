@@ -6,10 +6,9 @@
  * and open the template in the editor.
  */
 
-require_once  'controller/CoreController.php';
-require_once  'model/UserModel/UserDAO.php';
-require_once 'model/UserModel/userRole.php';
-require_once 'model/UserModel/user.php';
+require_once   'controller/CoreController.php';
+require  'model/UserModel/UserDAO.php';
+require  'model/UserModel/UserRoleDAO.php';
 class UserController extends CoreController {
 
     function agregarUsuario() {
@@ -19,7 +18,9 @@ class UserController extends CoreController {
         //Inicio carga en buffer
         ob_start();
        
-         $user = new UserDAO();
+         $user = new UserRoleDAO();
+         $data = $user->listarUserRole();
+             
          include 'view/UserView/agregar.php';
         $content = ob_get_clean();
         //Termino carga de bufer, se almacena todo en variable $content
@@ -30,24 +31,61 @@ class UserController extends CoreController {
         $this->view_page($pagina);
         
     }
+      function editarUsuario() {
+        
+        $pagina = $this->load_template();
+        $id=$_GET['id'];
+        //Inicio carga en buffer
+        ob_start();
+       
+        
+         $user2 = new UserDAO();
+         $user1 = $user2->getUser($id);
+          $user3 = new UserRoleDAO();
+         $data = $user3->listarUserRole();
+             
+         include 'view/UserView/modificar.php';
+        $content = ob_get_clean();
+        //Termino carga de bufer, se almacena todo en variable $content
+        //Se reemplaza la bandera del template por el contenido que deseo mostrar
+       
+        $pagina = $this->replace_content('/\#CONTENIDO\#/ms', $content, $pagina);
+        //Se muestra la pagina
+        $this->view_page($pagina);
+        
+    }
      function agregarNuevoUsuario() {
-        $user = new User();
+        
+         $user = new User();
         $user->setName($_POST['user']);
         $user->setUserPass($_POST['pass']);
         $user->setRol($_POST['rol']);
-        $pagina = $this->load_template();
+       
         $userDao = new UserDAO();
      
-        if($userDao->addUSer($user)){
+        $userDao->addUSer($user);
              echo '<script language="javascript">alert("Usuario Agregado Correctamente");</script>';
              $this->listarUsuarios();
             
-        } else {
-             echo '<script language="javascript">alert("Error al Agregar Usuario");</script>';
-              $pagina = $this->replace_content('/\#CONTENIDO\#/ms', $this->load_page('view/UserView/agregar.php'), $pagina);
+       
+             
         
-                    $this->view_page($pagina);
-        }
+        
+        //Se muestra la pagina
+  
+        
+    }
+    function modificarUsuario() {
+       
+         $user = new User();
+         $user->setId($_POST['id']);
+        $user->setName($_POST['user']);
+        $user->setUserPass($_POST['pass']);
+        $user->setRol($_POST['rol']);
+       
+        $userDao = new UserDAO();
+        $userDao->editUser($user);
+        $this->listarUsuarios();
         
         
         //Se muestra la pagina
@@ -55,29 +93,35 @@ class UserController extends CoreController {
         
     }
     function listarRoles(){
-       
-       
         if($result==''){
            echo '<script language="javascript">alert("No se encontraron Roles para Usuarios");</script>';
            return $result;
         } else {
-            
             return $result;
         }
         
     }
+    function borrarUsuario(){
+        $id=$_GET['id'];
+        $user=new UserDAO();
+        if($user->deleteUser($id)){
+            echo '<script language="javascript">alert("Usuario Eliminado");</script>';
+        }else{
+             echo '<script language="javascript">alert("Usuario NO Eliminado");</script>';
+        }
+        $this->listarUsuarios();
+    }
     function listarUsuarios(){
-           $pagina = $this->load_template();
+         $pagina = $this->load_template();
 
         //Inicio carga en buffer
         ob_start();
-       
-         $user = new UserDAO();
+         $user = new UserDAO();         
+         $data=$user->listarUsuarios();
          include 'view/UserView/listar.php';
         $content = ob_get_clean();
         //Termino carga de bufer, se almacena todo en variable $content
         //Se reemplaza la bandera del template por el contenido que deseo mostrar
-       
         $pagina = $this->replace_content('/\#CONTENIDO\#/ms', $content, $pagina);
         //Se muestra la pagina
         $this->view_page($pagina);
