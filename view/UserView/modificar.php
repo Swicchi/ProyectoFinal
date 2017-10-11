@@ -11,7 +11,7 @@
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                Modificar Nuevo Usuario
+                Modificar Usuario
             </div>
             <div class="panel-body">
                 <div class="row">

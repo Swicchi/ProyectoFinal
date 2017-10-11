@@ -2,7 +2,7 @@
 <script>
 function validar(){
 	     //Ingresamos un mensaje a mostrar
-        var mensaje = confirm('¿Desea eliminar esta persona?');
+        var mensaje = confirm('¿Desea eliminar esta alimento?');
         //Detectamos si el usuario acepto el mensaje
         if (mensaje) {
             return true;
@@ -15,7 +15,7 @@ function validar(){
 </script>
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Gestion de Usuarios</h1>
+                    <h1 class="page-header">Gestion de Alimentos</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -24,31 +24,29 @@ function validar(){
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                           Listar Usuarios
+                           Listar Alimentos
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                                  <?php if($data != ''){?>
+                                <?php if($data != ''){?>
                             <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
-                                        <th>Nombre Usuario</th>
-                                        <th>Clave</th>
-                                        <th>Rol</th>
+                                        <th>Nombre Alimento</th>
                                         <th>Acción Eliminar</th>
                                         <th>Acción Editar</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                  
                                     <?php foreach ($data as  $value):?>
                                      <tr class="odd gradeA">
-                                        <td><?php echo  $value['user'];?></td>
-                                         <td><?php echo  $value['password'];?></td>
-                                       <td><?php echo  $value['name'];?></td>
-                                       <td><a class="btn btn-success btn-lg"  href="index.php?id=<?php echo  $value['id_user'];?>&action=eliminarUsuario" onclick="return validar();">Eliminar</a></td>
-                                       <td><a class="btn btn-success btn-lg"  href="index.php?id=<?php echo  $value['id_user'];?>&action=editarUsuario">Editar</a></td>
+                                        <td><?php echo  $value['nombre'];?></td>
+                                       <td><a class="btn btn-success btn-lg"  href="index.php?id=<?php echo  $value['id_alimento'];?>&action=eliminarAlimento" onclick="return validar();">Eliminar</a></td>
+                                       <td><a class="btn btn-success btn-lg"  href="index.php?id=<?php echo  $value['id_alimento'];?>&action=editarAlimento">Editar</a></td>
                                     </tr>
                                       <?php endforeach;?>
+                                    
                                     </tbody>
                                 </table>
                               <?php } else {

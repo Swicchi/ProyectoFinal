@@ -14,11 +14,16 @@ class UserDAO extends conexionDB{
       $this->conectar();
          $sql="SELECT * FROM user NATURAL JOIN userrole;";
          $result= $this->consulta($sql);
+           if ($this->count_filas($result) > 0) { 
          while($row=$this->fetch_assoc($result)){
              $data[]=$row;
             }
         $this->disconnect();
+      
         return $data;
+        }else{
+            return '';
+        }
     
 
   }

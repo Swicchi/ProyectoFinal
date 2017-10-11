@@ -130,10 +130,10 @@
                                     <a href="#">Gestion de Alimentos <span class="fa arrow"></span></a>
                                     <ul class="nav nav-third-level">
                                         <li>
-                                            <a href="#">Agregar Alimento</a>
+                                            <a href="index.php?action=agregarAlimento">Agregar Alimento</a>
                                         </li>
                                         <li>
-                                            <a href="#">Listar Alimentos</a>
+                                            <a href="index.php?action=listarAlimento">Listar Alimentos</a>
                                         </li>
                                       
                                     </ul>

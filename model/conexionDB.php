@@ -32,8 +32,7 @@ class conexionDB {
       OUTPUT:  cantidad de registros encontrados
      */
     public function count_filas($result) {
-        if (!is_resource($result))
-            return false;
+       
         return mysqli_num_rows($result);
     }
 
