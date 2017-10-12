@@ -5,149 +5,125 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <?php
-
 $accion = !isset($_GET['action']) ? '' : $_GET['action'];
 //var_dump($_POST);exit();
 
 
 if (count($_POST) > 0) {
     if ($_GET["accion"] == "nuevoUsuario") {
-        //Login
-            require 'controller/UserController.php';
-            //se instancia al controlador
-            $mvc = new UserController();
-            $mvc->agregarNuevoUsuario();
-} else  if ($_GET["accion"] == "modificarUsuario") {
-        //Login
-            require 'controller/UserController.php';
-            //se instancia al controlador
-            $mvc = new UserController();
-            $mvc->modificarUsuario();
-}
-
-    
-    //Alimentos
-    
-     if ($_GET["accion"] == "nuevoAlimento") {
-        //Login
-            require 'controller/AlimentoController.php';
-            //se instancia al controlador
-            $mvc = new AlimentoController();
-            $mvc->agregarNuevoAlimento();
-} else  if ($_GET["accion"] == "modificarAlimento") {
-        //Login
-            require 'controller/AlimentoController.php';
-            //se instancia al controlador
-            $mvc = new AlimentoController();
-            $mvc->modificarAlimento();
-}
-
+        require 'controller/UserController.php';
+        //se instancia al controlador
+        $mvc = new UserController();
+        $mvc->agregarNuevoUsuario();
+    } else if ($_GET["accion"] == "modificarUsuario") {
+        require 'controller/UserController.php';
+        //se instancia al controlador
+        $mvc = new UserController();
+        $mvc->modificarUsuario();
     }
-    else{/* else if ($_POST['action'] == "guardar_cliente") {
-        //Ingreso de clientes
-        require 'app/controller/ClienteController.php';
+
+
+    //Alimentos
+
+    if ($_GET["accion"] == "nuevoAlimento") {
+        require 'controller/AlimentoController.php';
         //se instancia al controlador
-        $mvc = new ClienteController();
-        $mvc->agregarCliente();
-    } else if ($_POST['action'] == "eliminar_cliente") {
-        //Borrar clientes
-        require 'app/controller/ClienteController.php';
+        $mvc = new AlimentoController();
+        $mvc->agregarNuevoAlimento();
+    } else if ($_GET["accion"] == "modificarAlimento") {
+        require 'controller/AlimentoController.php';
         //se instancia al controlador
-        $mvc = new ClienteController();
-        $mvc->eliminarCliente();
-    } else if ($_POST['action'] == "editar_cliente") {
-        
-        require 'app/controller/ClienteController.php';
-        
-        $mvc = new ClienteController();
-        $mvc->editarCliente();
-    } else if ($_POST['action'] == "actualizar_cliente") {
-        
-        require 'app/controller/ClienteController.php';
+        $mvc = new AlimentoController();
+        $mvc->modificarAlimento();
+    }
+
+//Bebidas
+
+    if ($_GET["accion"] == "nuevaBebida") {
+       require 'controller/BebidaController.php';
         //se instancia al controlador
-        $mvc = new ClienteController();
-        $mvc->actualizarCliente();
-    } else if ($_POST['action'] == "actualizar_borrar") {
-        
-        require 'app/controller/ClienteController.php';
+        $mvc = new BebidaController();
+        $mvc->agregarNuevaBebida();
+    } else if ($_GET["accion"] == "modificarBebida") {
+        require 'controller/BebidaController.php';
         //se instancia al controlador
-        $mvc = new ClienteController();
-        $mvc->actualizarBorrar();
-    } 
+        $mvc = new BebidaController();
+        $mvc->modificarBebida();
+    }
 } else {
-    */if ($accion == '') {
-        //Es el login
+    if ($accion == '') {
         require 'controller/SiteController.php';
         //se instancia al controlador
         $mvc = new SiteController();
         $mvc->principal();
     } else if ($accion == 'agregarUsuario') {
-            //Gesti�n de clientes
-
-            require 'controller/UserController.php';
-            //se instancia al controlador
-            $mvc = new UserController();
-            $mvc->agregarUsuario();
-        } else  if ($accion == 'editarUsuario') {
-            //Gesti�n de clientes
-
-            require 'controller/UserController.php';
-            //se instancia al controlador
-            $mvc = new UserController();
-            $mvc->editarUsuario();
-        } else if ($accion == 'eliminarUsuario') {
-            //Gesti�n de clientes
-
-            require 'controller/UserController.php';
-            //se instancia al controlador
-            $mvc = new UserController();
-            $mvc->borrarUsuario();
-        } else if ($accion == 'listarUsuario') {
-            //Gesti�n de clientes
-             require 'controller/UserController.php';
-            //se instancia al controlador
-            $mvc = new UserController();
-            $mvc->listarUsuarios();
+         require 'controller/UserController.php';
+        //se instancia al controlador
+        $mvc = new UserController();
+        $mvc->agregarUsuario();
+    } else if ($accion == 'editarUsuario') {
+         require 'controller/UserController.php';
+        //se instancia al controlador
+        $mvc = new UserController();
+        $mvc->editarUsuario();
+    } else if ($accion == 'eliminarUsuario') {
+        require 'controller/UserController.php';
+        //se instancia al controlador
+        $mvc = new UserController();
+        $mvc->borrarUsuario();
+    } else if ($accion == 'listarUsuario') {
+        require 'controller/UserController.php';
+        //se instancia al controlador
+        $mvc = new UserController();
+        $mvc->listarUsuarios();
     }
-    
+
     //Alimentos
-    
+
     if ($accion == 'agregarAlimento') {
-            //Gesti�n de clientes
-
-            require 'controller/AlimentoController.php';
-            //se instancia al controlador
-            $mvc = new AlimentoController();
-            $mvc->agregarAlimento();
-        } else  if ($accion == 'editarAlimento') {
-            //Gesti�n de clientes
-
-            require 'controller/AlimentoController.php';
-            //se instancia al controlador
-            $mvc = new AlimentoController();
-            $mvc->editarAlimento();
-        } else if ($accion == 'eliminarAlimento') {
-            //Gesti�n de clientes
-
-            require 'controller/AlimentoController.php';
-            //se instancia al controlador
-            $mvc = new AlimentoController();
-            $mvc->borrarAlimento();
-        } else if ($accion == 'listarAlimento') {
-            //Gesti�n de clientes
-             require 'controller/AlimentoController.php';
-            //se instancia al controlador
-            $mvc = new AlimentoController();
-            $mvc->listarAlimentos();
+        require 'controller/AlimentoController.php';
+        //se instancia al controlador
+        $mvc = new AlimentoController();
+        $mvc->agregarAlimento();
+    } else if ($accion == 'editarAlimento') {
+        require 'controller/AlimentoController.php';
+        //se instancia al controlador
+        $mvc = new AlimentoController();
+        $mvc->editarAlimento();
+    } else if ($accion == 'eliminarAlimento') {
+        require 'controller/AlimentoController.php';
+        //se instancia al controlador
+        $mvc = new AlimentoController();
+        $mvc->borrarAlimento();
+    } else if ($accion == 'listarAlimento') {
+        require 'controller/AlimentoController.php';
+        //se instancia al controlador
+        $mvc = new AlimentoController();
+        $mvc->listarAlimentos();
     }
-        } /*else if ($accion == 'listar_cliente') {
-            //Lista clientes
 
-            require 'app/controller/ClienteController.php';
-            //se instancia al controlador
-            $mvc = new ClienteController();
-            $mvc->listarCliente();
-        } 
-    
-}*/
+    //Bebidas
+
+    if ($accion == 'agregarBebida') {
+        require 'controller/BebidaController.php';
+        //se instancia al controlador
+        $mvc = new BebidaController();
+        $mvc->agregarBebida();
+    } else if ($accion == 'editarBebida') {
+        require 'controller/BebidaController.php';
+        //se instancia al controlador
+        $mvc = new BebidaController();
+        $mvc->editarBebida();
+    } else if ($accion == 'eliminarBebida') {
+        require 'controller/BebidaController.php';
+        //se instancia al controlador
+        $mvc = new BebidaController();
+        $mvc->borrarBebida();
+    } else if ($accion == 'listarBebida') {
+        require 'controller/BebidaController.php';
+        //se instancia al controlador
+        $mvc = new BebidaController();
+        $mvc->listarBebidas();
+    }
+}
 ?>

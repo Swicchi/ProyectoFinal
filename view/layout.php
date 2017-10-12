@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+    <title>Administracion del sistema de restaurante</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="view/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -117,10 +117,10 @@
                                     <a href="#">Gestion de Bebidas <span class="fa arrow"></span></a>
                                     <ul class="nav nav-third-level">
                                         <li>
-                                            <a href="#">Agregar Bebida</a>
+                                            <a href="index.php?action=agregarBebida">Agregar Bebida</a>
                                         </li>
                                         <li>
-                                            <a href="#">Listar Bebidas</a>
+                                            <a href="index.php?action=listarBebida">Listar Bebidas</a>
                                         </li>
                                        
                                     </ul>

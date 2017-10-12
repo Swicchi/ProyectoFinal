@@ -20,7 +20,7 @@
                             <div class="center-block">
                             <div class="control-group">
                                 <div class="form-group floating-label-form-group controls">
-                                    <label>Nombre Usuario</label>
+                                    <label>Nombre Alimento</label>
                                     <input class="form-control" id="name" name="name" type="text" value="<?php echo  $alimento['nombre']; ?>" placeholder="Ingrese nombre de alimento" required >
                                     <p class="help-block text-danger"></p>
                                 </div>
