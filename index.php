@@ -37,10 +37,10 @@ if (count($_POST) > 0) {
         $mvc->modificarAlimento();
     }
 
-//Bebidas
+    //Bebidas
 
     if ($_GET["accion"] == "nuevaBebida") {
-       require 'controller/BebidaController.php';
+        require 'controller/BebidaController.php';
         //se instancia al controlador
         $mvc = new BebidaController();
         $mvc->agregarNuevaBebida();
@@ -50,6 +50,20 @@ if (count($_POST) > 0) {
         $mvc = new BebidaController();
         $mvc->modificarBebida();
     }
+
+    //Platos
+
+    if ($_GET["accion"] == "nuevoPlato") {
+        require 'controller/PlatoController.php';
+        //se instancia al controlador
+        $mvc = new PlatoController();
+        $mvc->agregarNuevoPlato();
+    } else if ($_GET["accion"] == "modificarPlato") {
+        require 'controller/PlatoController.php';
+        //se instancia al controlador
+        $mvc = new PlatoController();
+        $mvc->modificarPlato();
+    }
 } else {
     if ($accion == '') {
         require 'controller/SiteController.php';
@@ -57,12 +71,12 @@ if (count($_POST) > 0) {
         $mvc = new SiteController();
         $mvc->principal();
     } else if ($accion == 'agregarUsuario') {
-         require 'controller/UserController.php';
+        require 'controller/UserController.php';
         //se instancia al controlador
         $mvc = new UserController();
         $mvc->agregarUsuario();
     } else if ($accion == 'editarUsuario') {
-         require 'controller/UserController.php';
+        require 'controller/UserController.php';
         //se instancia al controlador
         $mvc = new UserController();
         $mvc->editarUsuario();
@@ -124,6 +138,30 @@ if (count($_POST) > 0) {
         //se instancia al controlador
         $mvc = new BebidaController();
         $mvc->listarBebidas();
+    }
+
+    //Platos
+
+    if ($accion == 'agregarPlato') {
+        require 'controller/PlatoController.php';
+        //se instancia al controlador
+        $mvc = new PlatoController();
+        $mvc->agregarPlato();
+    } else if ($accion == 'editarPlato') {
+        require 'controller/PlatoController.php';
+        //se instancia al controlador
+        $mvc = new PlatoController();
+        $mvc->editarPlato();
+    } else if ($accion == 'eliminarPlato') {
+        require 'controller/PlatoController.php';
+        //se instancia al controlador
+        $mvc = new PlatoController();
+        $mvc->borrarPlato();
+    } else if ($accion == 'listarPlato') {
+        require 'controller/PlatoController.php';
+        //se instancia al controlador
+        $mvc = new PlatoController();
+        $mvc->listarPlatos();
     }
 }
 ?>

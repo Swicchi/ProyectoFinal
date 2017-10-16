@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-class User  {
+class Plato  {
     private $id;
     private $nombre;
     private $precio;

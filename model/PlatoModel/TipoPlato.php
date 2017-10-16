@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-class userRole  {
+class TipoPlato  {
     private $id;
     private $name;
     function setId($id){

@@ -104,10 +104,10 @@
                                     <a href="#">Gestion de Platos de comida <span class="fa arrow"></span></a>
                                     <ul class="nav nav-third-level">
                                         <li>
-                                            <a href="#">Agregar Plato de comida</a>
+                                            <a href="index.php?action=agregarPlato">Agregar Plato de comida</a>
                                         </li>
                                         <li>
-                                            <a href="#">Listar Platos de comida</a>
+                                            <a href="index.php?action=listarPlato">Listar Platos de comida</a>
                                         </li>
                                        
                                     </ul>

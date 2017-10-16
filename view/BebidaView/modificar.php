@@ -21,21 +21,21 @@
                             <div class="control-group">
                                 <div class="form-group floating-label-form-group controls">
                                     <label>Nombre Bebida</label>
-                                    <input class="form-control" id="name" name="name" type="text" value="<?php echo  $bebida['nombre']; ?>" placeholder="Ingrese nombre de alimento" required >
+                                    <input class="form-control" id="name" name="name" type="text" value="<?php echo  $bebida['nombre']; ?>" placeholder="Ingrese nombre de bebida" required >
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="control-group">
                                 <div class="form-group floating-label-form-group controls">
                                     <label>Precio Bebida</label>
-                                    <input class="form-control" id="precio" name="precio" type="number" value="<?php echo  $bebida['precio']; ?>" placeholder="Ingrese precio de alimento" required >
+                                    <input class="form-control" id="precio" name="precio" type="number" value="<?php echo  $bebida['precio']; ?>" placeholder="Ingrese precio de bebida" required >
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                            <div class="control-group">
                                 <div class="form-group floating-label-form-group controls">
                                     <label>Detalle Bebida</label>
-                                    <input class="form-control" id="detalle" name="detalle" type="text" value="<?php echo  $bebida['detalle']; ?>" placeholder="Ingrese detalle de alimento" required >
+                                    <input class="form-control" id="detalle" name="detalle" type="text" value="<?php echo  $bebida['detalle']; ?>" placeholder="Ingrese detalle de bebida" required >
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>

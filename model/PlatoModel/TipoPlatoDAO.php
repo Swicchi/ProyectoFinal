@@ -4,7 +4,7 @@ require 'model/PlatoModel/TipoPlato.php';
 class TipoPlatoDAO extends conexionDB{
 function listarTipoPlato() {
         //conexion a la base de datos
-        $this->conectar();
+         $this->conectar();
          $sql="SELECT * FROM  tipoplato;";
          $result= $this->consulta($sql);
         

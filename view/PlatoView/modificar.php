@@ -16,30 +16,34 @@
             <div class="panel-body">
                 <div class="row">
                     <div class="col-lg-6">
-                        <form role="form" action="index.php?accion=modificarBebida" method="post">
+                        <form role="form" action="index.php?accion=modificarPlato" method="post">
                             <div class="center-block">
                             <div class="control-group">
                                 <div class="form-group floating-label-form-group controls">
-                                    <label>Nombre Bebida</label>
-                                    <input class="form-control" id="name" name="name" type="text" value="<?php echo  $bebida['nombre']; ?>" placeholder="Ingrese nombre de alimento" required >
+                                    <label>Nombre Plato</label>
+                                    <input class="form-control" id="name" name="nombre" type="text" value="<?php echo  $bebida['nombre']; ?>" placeholder="Ingrese nombre de plato" required >
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="control-group">
                                 <div class="form-group floating-label-form-group controls">
-                                    <label>Precio Bebida</label>
-                                    <input class="form-control" id="precio" name="precio" type="number" value="<?php echo  $bebida['precio']; ?>" placeholder="Ingrese precio de alimento" required >
+                                    <label>Precio Plato</label>
+                                    <input class="form-control" id="precio" name="precio" type="number" value="<?php echo  $bebida['precio']; ?>" placeholder="Ingrese precio de plato" required >
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
-                           <div class="control-group">
-                                <div class="form-group floating-label-form-group controls">
-                                    <label>Detalle Bebida</label>
-                                    <input class="form-control" id="detalle" name="detalle" type="text" value="<?php echo  $bebida['detalle']; ?>" placeholder="Ingrese detalle de alimento" required >
-                                    <p class="help-block text-danger"></p>
-                                </div>
+                           <div class="form-group">
+                                <label>Seleccione Tipo</label>
+                                <select id="tipo" name="tipo" class="form-control">
+                                     <option value="<?php echo  $plato['id_tipoplato']; ?>"><?php echo $plato['nombre_tipo']; ?></option>
+                                 <?php foreach ($data as $rol):?>
+                                     <?php if($rol['id_tipoplato']!=$plato['id_tipoplato']){?>
+                                              <option value="<?php echo  $rol['id_userrole']; ?>"><?php echo $rol['nombre_tipo']; ?></option>
+                                  <?php } ?>   
+                               <?php endforeach;?> 
+                                </select>
                             </div>
-                                <input class="form-control" id="id" name="id"   value="<?php echo  $bebida['id_bebestible']; ?>" type="hidden"  required >
+                                <input class="form-control" id="id" name="id"   value="<?php echo  $bebida['id_plato']; ?>" type="hidden"  required >
                           
                             <button type="submit" class="btn btn-default">Submit Button</button>
                             <button type="reset" class="btn btn-default">Reset Button</button>

@@ -21,14 +21,14 @@
                             <div class="control-group">
                                 <div class="form-group floating-label-form-group controls">
                                     <label>Nombre Usuario</label>
-                                    <input class="form-control" id="user" name="user" type="text" value="<?php echo  $user1['user']; ?>" placeholder="Ingrese nombre de usuario" required >
+                                    <input class="form-control" id="user" name="user" type="text" value="<?php echo  $plato['user']; ?>" placeholder="Ingrese nombre de usuario" required >
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="control-group">
                                 <div class="form-group floating-label-form-group controls">
                                     <label>Clave Usuario</label>
-                                    <input class="form-control" id="pass" name="pass"  minlength="8" max="14" value="<?php echo  $user1['password']; ?>" type="password" placeholder="Ingrese clave de usuario" required >
+                                    <input class="form-control" id="pass" name="pass"  minlength="8" max="14" value="<?php echo  $plato['password']; ?>" type="password" placeholder="Ingrese clave de usuario" required >
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
@@ -36,15 +36,15 @@
                                
                                 <label>Seleccione rol</label>
                                 <select id="rol" name="rol" class="form-control">
-                                     <option value="<?php echo  $user1['id_userrole']; ?>"><?php echo $user1['name']; ?></option>
+                                     <option value="<?php echo  $plato['id_userrole']; ?>"><?php echo $plato['name']; ?></option>
                                  <?php foreach ($data as $rol):?>
-                                     <?php if($rol['id_userrole']!=$user1['id_userrole']){?>
+                                     <?php if($rol['id_userrole']!=$plato['id_userrole']){?>
                                               <option value="<?php echo  $rol['id_userrole']; ?>"><?php echo $rol['name']; ?></option>
                                   <?php } ?>   
                                <?php endforeach;?> 
                                 </select>
                             </div>
-                                <input class="form-control" id="id" name="id"   value="<?php echo  $user1['id_user']; ?>" type="hidden"  required >
+                                <input class="form-control" id="id" name="id"   value="<?php echo  $plato['id_user']; ?>" type="hidden"  required >
                           
                             <button type="submit" class="btn btn-default">Submit Button</button>
                             <button type="reset" class="btn btn-default">Reset Button</button>
