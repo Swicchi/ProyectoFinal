@@ -2,7 +2,7 @@
 <script>
     function validar() {
         //Ingresamos un mensaje a mostrar
-        var mensaje = confirm('¿Desea eliminar esta bebida?');
+        var mensaje = confirm('¿Desea eliminar este plato?');
         //Detectamos si el usuario acepto el mensaje
         if (mensaje) {
             return true;
@@ -56,8 +56,9 @@
                                             ?>
                                             <div class="pull-right"><a class="btn btn-success btn-lg"  href="index.php?id=<?php echo $value['id_plato']; ?>&action=ingredientePlato">Agregar Ingredientes</a>    
                                             </div>  <?php }else {
-                                            ?>
-                                            <div class="pull-right"><a class="btn btn-success btn-lg"  href="index.php?id=<?php echo $value['id_plato']; ?>&action=ingredientePlato" >Agregar Ingredientes</a>    
+                                              echo 'No Hay Ingredientes';
+                                                ?>
+                                             <div class="pull-right"><a class="btn btn-success btn-lg"  href="index.php?id=<?php echo $value['id_plato']; ?>&action=ingredientePlato" >Agregar Ingredientes</a>    
                                             </div><?php }
                             ?></td>
                                     <td><a class="btn btn-success btn-lg"  href="index.php?id=<?php echo $value['id_plato']; ?>&action=eliminarPlato" onclick="return validar();">Eliminar</a></td>

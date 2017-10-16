@@ -42,7 +42,7 @@ class PlatoController extends CoreController {
 
 
         $platoDAO = new PlatoDAO();
-        $plato = $platoDAO->getUser($id);
+        $plato = $platoDAO->getPlato($id);
         $tipoPlatoDAO = new TipoPlatoDAO();
         $data = $tipoPlatoDAO->listarTipoPlato();
 
@@ -66,7 +66,7 @@ class PlatoController extends CoreController {
         $platoDao = new PlatoDAO();
 
         $platoDao->addPlato($plato);
-        echo '<script language="javascript">alert("Usuario Agregado Correctamente");</script>';
+        echo '<script language="javascript">alert("Plato Agregado Correctamente");</script>';
         $this->listarPlatos();
 
 
@@ -83,30 +83,23 @@ class PlatoController extends CoreController {
         $plato->setNombre($_POST['nombre']);
         $plato->setPrecio($_POST['precio']);
         $plato->setId_tipo($_POST['tipo']);
-        $platoDao = new UserDAO();
-        $platoDao->editUser($plato);
+        $platoDao = new PlatoDAO();
+        $platoDao->editPlato($plato);
         $this->listarPlatos();
 
 
         //Se muestra la pagina
     }
 
-    function listarTipos() {
-        if ($result == '') {
-            echo '<script language="javascript">alert("No se encontraron Roles para Usuarios");</script>';
-            return $result;
-        } else {
-            return $result;
-        }
-    }
+    
 
     function borrarPlato() {
         $id = $_GET['id'];
         $platoDAO = new PlatoDAO();
-        if ($platoDAO->deleteUser($id)) {
-            echo '<script language="javascript">alert("Usuario Eliminado");</script>';
+        if ($platoDAO->deletePlato($id)) {
+            echo '<script language="javascript">alert("Plato Eliminado");</script>';
         } else {
-            echo '<script language="javascript">alert("Usuario NO Eliminado");</script>';
+            echo '<script language="javascript">alert("Plato NO Eliminado");</script>';
         }
         $this->listarPlatos();
     }

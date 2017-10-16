@@ -10,7 +10,6 @@ class PlatoDAO extends conexionDB {
         $consulta = $this->consulta("INSERT INTO `plato`( `nombre`, `precio`, `id_tipoplato`) VALUES ('" . $plato->getNombre() . "','" . $plato->getPrecio() . "'," . $plato->getId_tipo() . ") ");
         $this->disconnect();
         return $consulta;
-        
     }
 
     function listarPlatos() {
@@ -21,14 +20,14 @@ class PlatoDAO extends conexionDB {
             while ($row = $this->fetch_assoc($result)) {
                 $sql = "SELECT alimento.nombre FROM alimentoxplato NATURAL JOIN alimento WHERE id_plato = " . $row['id_plato'];
                 $result2 = $this->consulta($sql);
-                $data2[]=null;
+                $data2[] = null;
                 if ($this->count_filas($result2) > 0) {
                     while ($row3 = $this->fetch_assoc($result2)) {
-                        $data2[]=$row3;
+                        $data2[] = $row3;
                     }
-                    $row[6]=$data2;
-                }else{
-                    $row[6]=null;
+                    $row[6] = $data2;
+                } else {
+                    $row[6] = null;
                 }
                 $data[] = $row;
             }
@@ -58,14 +57,12 @@ class PlatoDAO extends conexionDB {
     //conexion a la base de datos
     function editPlato(Plato $plato) {
         $this->conectar();
-        $query = "UPDATE `plato` SET "
-                . "`nombre`='" . $plato->getNombre() . "',`precio`='" . $plato->getPrecio() . "',`id_tipoplato`=" . $plato->getId_tipo() . " WHERE `id_plato` = " . $plato->getId();
+        echo 'por la';
+        $query = "UPDATE plato SET "
+                . "nombre= '".$plato->getNombre()."' ,precio=" . $plato->getPrecio() . ",id_tipoplato=" . $plato->getId_tipo() . " WHERE id_plato = " . $plato->getId();
         $this->consulta($query);
+        echo 'por la';
         $this->disconnect();
     }
 
 }
-
-                                                            
-                                  
-                                 

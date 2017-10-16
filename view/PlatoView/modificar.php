@@ -2,7 +2,7 @@
 <html>
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Gestion de Bebidas</h1>
+        <h1 class="page-header">Gestion de Platos</h1>
     </div>
     <!-- /.col-lg-12 -->
 </div>
@@ -11,7 +11,7 @@
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                Modificar Bebida
+                Modificar Plato
             </div>
             <div class="panel-body">
                 <div class="row">
@@ -21,14 +21,14 @@
                             <div class="control-group">
                                 <div class="form-group floating-label-form-group controls">
                                     <label>Nombre Plato</label>
-                                    <input class="form-control" id="name" name="nombre" type="text" value="<?php echo  $bebida['nombre']; ?>" placeholder="Ingrese nombre de plato" required >
+                                    <input class="form-control" id="name" name="nombre" type="text" value="<?php echo  $plato['nombre']; ?>" placeholder="Ingrese nombre de plato" required >
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="control-group">
                                 <div class="form-group floating-label-form-group controls">
                                     <label>Precio Plato</label>
-                                    <input class="form-control" id="precio" name="precio" type="number" value="<?php echo  $bebida['precio']; ?>" placeholder="Ingrese precio de plato" required >
+                                    <input class="form-control" id="precio" name="precio" type="number" value="<?php echo  $plato['precio']; ?>" placeholder="Ingrese precio de plato" required >
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
@@ -43,7 +43,7 @@
                                <?php endforeach;?> 
                                 </select>
                             </div>
-                                <input class="form-control" id="id" name="id"   value="<?php echo  $bebida['id_plato']; ?>" type="hidden"  required >
+                                <input class="form-control" id="id" name="id"   value="<?php echo  $plato['id_plato']; ?>" type="hidden"  required >
                           
                             <button type="submit" class="btn btn-default">Submit Button</button>
                             <button type="reset" class="btn btn-default">Reset Button</button>
