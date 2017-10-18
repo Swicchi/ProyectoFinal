@@ -57,7 +57,6 @@ class PlatoDAO extends conexionDB {
     //conexion a la base de datos
     function editPlato(Plato $plato) {
         $this->conectar();
-        echo 'por la';
         $query = "UPDATE plato SET "
                 . "nombre= '".$plato->getNombre()."' ,precio=" . $plato->getPrecio() . ",id_tipoplato=" . $plato->getId_tipo() . " WHERE id_plato = " . $plato->getId();
         $this->consulta($query);

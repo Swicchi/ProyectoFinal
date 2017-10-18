@@ -54,11 +54,11 @@
                                                 echo '  ';
                                             endforeach;
                                             ?>
-                                            <div class="pull-right"><a class="btn btn-success btn-lg"  href="index.php?id=<?php echo $value['id_plato']; ?>&action=ingredientePlato">Agregar Ingredientes</a>    
+                                            <div class="pull-right"><a class="btn btn-success btn-lg"  href="index.php?id=<?php echo $value['id_plato']; ?>&action=ingredientePlato">Agregar Ingrediente</a>    
                                             </div>  <?php }else {
                                               echo 'No Hay Ingredientes';
                                                 ?>
-                                             <div class="pull-right"><a class="btn btn-success btn-lg"  href="index.php?id=<?php echo $value['id_plato']; ?>&action=ingredientePlato" >Agregar Ingredientes</a>    
+                                             <div class="pull-right"><a class="btn btn-success btn-lg"  href="index.php?id=<?php echo $value['id_plato']; ?>&action=ingredientePlato" >Agregar Ingrediente</a>    
                                             </div><?php }
                             ?></td>
                                     <td><a class="btn btn-success btn-lg"  href="index.php?id=<?php echo $value['id_plato']; ?>&action=eliminarPlato" onclick="return validar();">Eliminar</a></td>
@@ -75,101 +75,6 @@
 
 
 
-
-                /*  array(6) {
-                  [0]=&gt;
-                  array(1) {
-                  [0]=&gt;
-                  array(4) {
-                  ["id_plato"]=&gt;
-                  string(1) "7"
-                  ["nombre"]=&gt;
-                  string(5) "Arroz"
-                  ["precio"]=&gt;
-                  string(4) "1200"
-                  ["nombre_tipo"]=&gt;
-                  string(14) "Acompanamiento"
-                  }
-                  }
-                  [1]=&gt;
-                  array(1) {
-                  [3]=&gt;
-                  array(1) {
-                  [0]=&gt;
-                  NULL
-                  }
-                  }
-                  [2]=&gt;
-                  array(1) {
-                  [0]=&gt;
-                  array(4) {
-                  ["id_plato"]=&gt;
-                  string(1) "5"
-                  ["nombre"]=&gt;
-                  string(14) "Caldo de pollo"
-                  ["precio"]=&gt;
-                  string(4) "2300"
-                  ["nombre_tipo"]=&gt;
-                  string(18) "Platillo Principal"
-                  }
-                  }
-                  [3]=&gt;
-                  array(1) {
-                  [3]=&gt;
-                  array(4) {
-                  [0]=&gt;
-                  NULL
-                  [1]=&gt;
-                  NULL
-                  [2]=&gt;
-                  array(1) {
-                  ["ingrediente"]=&gt;
-                  string(5) "Arroz"
-                  }
-                  [3]=&gt;
-                  array(1) {
-                  ["ingrediente"]=&gt;
-                  string(6) "Tomate"
-                  }
-                  }
-                  }
-                  [4]=&gt;
-                  array(1) {
-                  [0]=&gt;
-                  array(4) {
-                  ["id_plato"]=&gt;
-                  string(1) "6"
-                  ["nombre"]=&gt;
-                  string(18) "Cazuela de Chancho"
-                  ["precio"]=&gt;
-                  string(4) "3000"
-                  ["nombre_tipo"]=&gt;
-                  string(18) "Platillo Principal"
-                  }
-                  }
-                  [5]=&gt;
-                  array(1) {
-                  [3]=&gt;
-                  array(5) {
-                  [0]=&gt;
-                  NULL
-                  [1]=&gt;
-                  NULL
-                  [2]=&gt;
-                  array(1) {
-                  ["ingrediente"]=&gt;
-                  string(5) "Arroz"
-                  }
-                  [3]=&gt;
-                  array(1) {
-                  ["ingrediente"]=&gt;
-                  string(6) "Tomate"
-                  }
-                  [4]=&gt;
-                  NULL
-                  }
-                  }
-                  } */
                 ?>
             </div>
             <!-- /.table-responsive -->

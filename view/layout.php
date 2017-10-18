@@ -13,7 +13,11 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="view/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+   <!-- DataTables CSS -->
+    <link href="view/vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
 
+    <!-- DataTables Responsive CSS -->
+    <link href="view/vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
     <!-- MetisMenu CSS -->
     <link href="view/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 
@@ -181,7 +185,22 @@
 -->
     <!-- Custom Theme JavaScript -->
     <script src="view/dist/js/sb-admin-2.js"></script>
+       <!-- DataTables JavaScript -->
+    <script src="view/vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="view/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+    <script src="view/vendor/datatables-responsive/dataTables.responsive.js"></script>
 
+    <!-- Custom Theme JavaScript -->
+    <script src="../dist/js/sb-admin-2.js"></script>
+
+    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+    <script>
+    $(document).ready(function() {
+        $('#dataTables-example').DataTable({
+            responsive: true
+        });
+    });
+    </script>
 </body>
 
 </html>

@@ -1,4 +1,4 @@
-
+  
 <script>
 function validar(){
 	     //Ingresamos un mensaje a mostrar
@@ -29,6 +29,8 @@ function validar(){
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                                 <?php if($data != ''){?>
+                        
+                            
                             <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
@@ -63,5 +65,5 @@ function validar(){
                 <!-- /.col-lg-6 -->
            
             <!-- /.row -->
-     
+   
      

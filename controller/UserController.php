@@ -40,7 +40,7 @@ class UserController extends CoreController {
        
         
          $user2 = new UserDAO();
-         $user1 = $user2->getUser($id);
+         $user = $user2->getUser($id);
           $user3 = new UserRoleDAO();
          $data = $user3->listarUserRole();
              
