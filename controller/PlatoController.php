@@ -7,9 +7,8 @@
  */
 
 require_once 'controller/CoreController.php';
-require 'model/PlatoModel/PlatoDAO.php';
-require 'model/PlatoModel/TipoPlatoDAO.php';
-
+require_once 'model/PlatoModel/PlatoDAO.php';
+require_once 'model/PlatoModel/TipoPlatoDAO.php';
 class PlatoController extends CoreController {
 
     function agregarPlato() {
@@ -21,7 +20,7 @@ class PlatoController extends CoreController {
 
         $plato = new TipoPlatoDAO();
         $data = $plato->listarTipoPlato();
-       // $alimentoDAO = new AlimentoDAO();
+        // $alimentoDAO = new AlimentoDAO();
         //$alimentos = $alimentoDAO->listarAlimentos();
         include 'view/PlatoView/agregar.php';
         $content = ob_get_clean();
@@ -37,12 +36,12 @@ class PlatoController extends CoreController {
 
         $pagina = $this->load_template();
         $id = $_GET['id'];
+        $plato = new Plato();
+        $plato->setId($id);
         //Inicio carga en buffer
         ob_start();
-
-
         $platoDAO = new PlatoDAO();
-        $plato = $platoDAO->getPlato($id);
+        $plato = $platoDAO->getPlato($plato);
         $tipoPlatoDAO = new TipoPlatoDAO();
         $data = $tipoPlatoDAO->listarTipoPlato();
 
@@ -91,12 +90,12 @@ class PlatoController extends CoreController {
         //Se muestra la pagina
     }
 
-    
-
     function borrarPlato() {
         $id = $_GET['id'];
+        $plato=new Plato();
+        $plato->setId($id);
         $platoDAO = new PlatoDAO();
-        if ($platoDAO->deletePlato($id)) {
+        if ($platoDAO->deletePlato($plato)) {
             echo '<script language="javascript">alert("Plato Eliminado");</script>';
         } else {
             echo '<script language="javascript">alert("Plato NO Eliminado");</script>';
@@ -119,7 +118,42 @@ class PlatoController extends CoreController {
         //Se muestra la pagina
         $this->view_page($pagina);
     }
+    function agregarIngredientePlato(){
+        $pagina = $this->load_template();
 
+        $id=$_GET['id'];
+        $plato = new Plato();
+        $plato->setId($id);
+         ob_start();
+        $platoDAO = new PlatoDAO();
+        $data=$platoDAO->getIngredientexPlato($plato);
+        include 'view/PlatoView/listaringrediente.php';
+        $content = ob_get_clean();
+        //Termino carga de bufer, se almacena todo en variable $content
+        //Se reemplaza la bandera del template por el contenido que deseo mostrar
+        $pagina = $this->replace_content('/\#CONTENIDO\#/ms', $content, $pagina);
+        //Se muestra la pagina
+        $this->view_page($pagina);
+    }
+    function nuevoIngrediente(){
+        $id=$_GET['id'];
+        $idplato=$_GET['idplato'];
+        $plato = new Plato();
+        $plato->setId($idplato);
+        $plato->setIngredientes($id);
+        $platoDAO = new PlatoDAO();
+        $platoDAO->addIngredientexPlato($plato);
+         $this->listarPlatos();
+    }
+    function eliminarIngrediente(){
+        $id=$_GET['id'];
+        $idplato=$_GET['idplato'];
+        $plato = new Plato();
+        $plato->setId($idplato);
+        $plato->setIngredientes($id);
+        $platoDAO = new PlatoDAO();
+        $platoDAO->deleteIngredientexPlato($plato);
+        $this->listarPlatos();
+    }
 }
-
 ?>

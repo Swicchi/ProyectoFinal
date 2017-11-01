@@ -69,80 +69,68 @@
             </ul>
             <!-- /.navbar-top-links -->
 
-            <div class="navbar-default sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">
-                    <ul class="nav" id="side-menu">
-                          
-                       
-                        <li>
-                            <a href="#"><i class="fa fa-user fa-fw"></i> Gestion de Usuarios<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="index.php?action=agregarUsuario">Agregar Usuario</a>
-                                </li>
-                                <li>
-                                    <a href="index.php?action=listarUsuario">Listar Usuarios</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                       
-                            <a href="#"><i class="fa fa-cutlery fa-fw"></i> Gestion de Menus<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="#">Gestion de Platos de comida <span class="fa arrow"></span></a>
-                                    <ul class="nav nav-third-level">
-                                        <li>
-                                            <a href="index.php?action=agregarPlato">Agregar Plato de comida</a>
-                                        </li>
-                                        <li>
-                                            <a href="index.php?action=listarPlato">Listar Platos de comida</a>
-                                        </li>
-                                       
-                                    </ul>
-                                    <!-- /.nav-third-level -->
-                                </li>
-                                <li>
-                                    <a href="#">Gestion de Bebidas <span class="fa arrow"></span></a>
-                                    <ul class="nav nav-third-level">
-                                        <li>
-                                            <a href="index.php?action=agregarBebida">Agregar Bebida</a>
-                                        </li>
-                                        <li>
-                                            <a href="index.php?action=listarBebida">Listar Bebidas</a>
-                                        </li>
-                                       
-                                    </ul>
-                                    <!-- /.nav-third-level -->
-                                </li>
-                                <li>
-                                    <a href="#">Gestion de Alimentos <span class="fa arrow"></span></a>
-                                    <ul class="nav nav-third-level">
-                                        <li>
-                                            <a href="index.php?action=agregarAlimento">Agregar Alimento</a>
-                                        </li>
-                                        <li>
-                                            <a href="index.php?action=listarAlimento">Listar Alimentos</a>
-                                        </li>
-                                      
-                                    </ul>
-                                    <!-- /.nav-third-level -->
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                     
-                    </ul>
-                </div>
-                <!-- /.sidebar-collapse -->
-            </div>
+            
             <!-- /.navbar-static-side -->
         </nav>
         
         <div id="page-wrapper">
+              <div class="panel panel-default">
+            <div class="panel-heading">
+                Listar Ordenes
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <?php if ($data != '') { ?>
+                    <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        <thead>
+                            <tr>
+                                <th>Nombre Plato</th>
+                                <th>Precio Plato</th>
+                                <th>Tipo Plato</th>
+                                <th>Ingredientes</th>
+                                <th>Acción Actualizar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <?php// foreach ($data as $value): ?>
+                                <tr class="odd gradeA">
+                                    <td><?php echo "A" //$value->//getNombre(); ?></td>
+                                    <td><?php echo "B" //$value->//getPrecio(); ?></td>
+                                    <td><?php echo "C"//$value->//getId_tipo()->getName(); ?></td>
+                                    <td><?php
+                                       /*/* If ($value->//getIngredientes() != null) {
+                                            foreach ($value->//getIngredientes() as $ing):
+                                                if ($ing!=null){
+                                                echo $ing->//getName();
+                                                echo '  ';
+                                                } else {
+                                                    
+                                                }
+                                            endforeach;
+                                           */ ?>
+                                             <?php// }else {
+                                              echo 'No Hay Ingredientes';
+                                                ?>
+                                             <?php }
+                            ?><div class="pull-right"><a class="btn btn-success btn-lg"  href="index.php?id=<?php// echo $value->//getId(); ?>&action=ingredientePlato" >Agregar Ingrediente</a>    
+                                            </div></td>
+                                    <td><a class="btn btn-danger btn-lg"  href="index.php?id=<?php// echo $value->//getId(); ?>&preparado" onclick="return validar();">Actualizar</a></td>
+                                </tr>
+    <?php// endforeach; ?>
+
+                        </tbody>
+                    </table>
+                <?php
+           //     } else {
+                    echo '<h1>No Hay Datos</h1>';
            
-            #CONTENIDO#
+
+
+
+                ?>
+            </div>  
+              
         </div>
                 <!-- /.col-lg-12 -->
             </div>

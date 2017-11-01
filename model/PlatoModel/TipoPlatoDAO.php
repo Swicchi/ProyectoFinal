@@ -9,7 +9,10 @@ function listarTipoPlato() {
          $result= $this->consulta($sql);
         
          while($row= $this->fetch_array($result)){
-             $data[]=$row;
+             $tipoplato= new TipoPlato();
+             $tipoplato->setId($row['id_tipoplato']);
+             $tipoplato->setName($row['nombre_tipo']);
+             $data[]=$tipoplato;
             }
      
         $this->disconnect();

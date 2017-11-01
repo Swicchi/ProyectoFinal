@@ -7,8 +7,7 @@
  */
 
 require_once 'controller/CoreController.php';
-require 'model/BebidaModel/BebidaDAO.php';
-
+require_once 'model/BebidaModel/BebidaDAO.php';
 class BebidaController extends CoreController {
 
     function agregarBebida() {
@@ -31,12 +30,14 @@ class BebidaController extends CoreController {
 
         $pagina = $this->load_template();
         $id = $_GET['id'];
+        $bebida=new Bebida();
+        $bebida->setId($id);
         //Inicio carga en buffer
         ob_start();
 
 
         $bebidaDAO = new BebidaDAO();
-        $bebida = $bebidaDAO->getBebida($id);
+        $bebida = $bebidaDAO->getBebida($bebida);
 
 
         include 'view/BebidaView/modificar.php';
@@ -86,8 +87,10 @@ class BebidaController extends CoreController {
 
     function borrarBebida() {
         $id = $_GET['id'];
-        $bebida = new BebidaDAO();
-        if ($bebida->deleteBebida($id)) {
+        $bebida=new Bebida();
+        $bebida->setId($id);
+        $bebidaDao = new BebidaDAO();
+        if ($bebidaDao->deleteBebida($bebida)) {
             echo '<script language="javascript">alert("Bebida Eliminada");</script>';
         } else {
             echo '<script language="javascript">alert("Bebida NO Eliminada");</script>';

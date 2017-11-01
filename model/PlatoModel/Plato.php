@@ -11,6 +11,9 @@ class Plato  {
     private $nombre;
     private $precio;
     private $id_tipo;
+    private $ingredientes;
+    
+    private $noingredientes;
     function getId() {
         return $this->id;
     }
@@ -25,6 +28,13 @@ class Plato  {
 
     function getId_tipo() {
         return $this->id_tipo;
+    }
+
+    function getIngredientes() {
+        return $this->ingredientes;
+    }
+     function getnoIngredientes() {
+        return $this->noingredientes;
     }
 
     function setId($id) {
@@ -42,6 +52,14 @@ class Plato  {
     function setId_tipo($id_tipo) {
         $this->id_tipo = $id_tipo;
     }
+
+    function setIngredientes($ingredientes) {
+        $this->ingredientes = $ingredientes;
+    }
+    function setnoIngredientes($noingredientes) {
+        $this->noingredientes = $noingredientes;
+    }
+
 
 
 }

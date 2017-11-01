@@ -5,17 +5,24 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <?php
+session_start();
 $accion = !isset($_GET['action']) ? '' : $_GET['action'];
 //var_dump($_POST);exit();
 
-
 if (count($_POST) > 0) {
-    if ($_GET["accion"] == "nuevoUsuario") {
+    if (isset($_GET['loginUser'])) {
+        require 'controller/SiteController.php';
+        //se instancia al controlador
+        $mvc = new SiteController();
+        $mvc->loginUser();
+    } else
+    if (isset($_GET['nuevoUsuario'])) {
         require 'controller/UserController.php';
         //se instancia al controlador
         $mvc = new UserController();
         $mvc->agregarNuevoUsuario();
-    } else if ($_GET["accion"] == "modificarUsuario") {
+    } else
+    if (isset($_GET['modificarUsuario'])) {
         require 'controller/UserController.php';
         //se instancia al controlador
         $mvc = new UserController();
@@ -24,13 +31,13 @@ if (count($_POST) > 0) {
 
 
     //Alimentos
-
-    if ($_GET["accion"] == "nuevoAlimento") {
+    if (isset($_GET['nuevoAlimento'])) {
         require 'controller/AlimentoController.php';
         //se instancia al controlador
         $mvc = new AlimentoController();
         $mvc->agregarNuevoAlimento();
-    } else if ($_GET["accion"] == "modificarAlimento") {
+    } else
+    if (isset($_GET['modificarAlimento'])) {
         require 'controller/AlimentoController.php';
         //se instancia al controlador
         $mvc = new AlimentoController();
@@ -38,13 +45,13 @@ if (count($_POST) > 0) {
     }
 
     //Bebidas
-
-    if ($_GET["accion"] == "nuevaBebida") {
+    if (isset($_GET['nuevaBebida'])) {
         require 'controller/BebidaController.php';
         //se instancia al controlador
         $mvc = new BebidaController();
         $mvc->agregarNuevaBebida();
-    } else if ($_GET["accion"] == "modificarBebida") {
+    } else
+    if (isset($_GET['modificarBebida'])) {
         require 'controller/BebidaController.php';
         //se instancia al controlador
         $mvc = new BebidaController();
@@ -52,19 +59,25 @@ if (count($_POST) > 0) {
     }
 
     //Platos
-
-    if ($_GET["accion"] == "nuevoPlato") {
+    if (isset($_GET['nuevoPlato'])) {
         require 'controller/PlatoController.php';
         //se instancia al controlador
         $mvc = new PlatoController();
         $mvc->agregarNuevoPlato();
-    } else if ($_GET["accion"] == "modificarPlato") {
+    } else
+    if (isset($_GET['modificarPlato'])) {
         require 'controller/PlatoController.php';
         //se instancia al controlador
         $mvc = new PlatoController();
         $mvc->modificarPlato();
     }
 } else {
+    if(!isset($_SESSION['username'])){
+    require 'controller/SiteController.php';
+     //se instancia al controlador
+     $mvc = new SiteController();
+     $mvc->principal(true);
+    }else
     if ($accion == '') {
         require 'controller/SiteController.php';
         //se instancia al controlador
@@ -93,7 +106,7 @@ if (count($_POST) > 0) {
     }
 
     //Alimentos
-
+    else
     if ($accion == 'agregarAlimento') {
         require 'controller/AlimentoController.php';
         //se instancia al controlador
@@ -117,7 +130,7 @@ if (count($_POST) > 0) {
     }
 
     //Bebidas
-
+  else
     if ($accion == 'agregarBebida') {
         require 'controller/BebidaController.php';
         //se instancia al controlador
@@ -141,7 +154,7 @@ if (count($_POST) > 0) {
     }
 
     //Platos
-
+  else
     if ($accion == 'agregarPlato') {
         require 'controller/PlatoController.php';
         //se instancia al controlador
@@ -162,6 +175,21 @@ if (count($_POST) > 0) {
         //se instancia al controlador
         $mvc = new PlatoController();
         $mvc->listarPlatos();
+    } else if ($accion == 'ingredientePlato') {
+        require 'controller/PlatoController.php';
+        //se instancia al controlador
+        $mvc = new PlatoController();
+        $mvc->agregarIngredientePlato();
+    } else if ($accion == 'agregarIngredientexPlato') {
+        require 'controller/PlatoController.php';
+        //se instancia al controlador
+        $mvc = new PlatoController();
+        $mvc->nuevoIngrediente();
+    } else if ($accion == 'eliminarIngredientexPlato') {
+        require 'controller/PlatoController.php';
+        //se instancia al controlador
+        $mvc = new PlatoController();
+        $mvc->eliminarIngrediente();
     }
 }
 ?>

@@ -9,7 +9,10 @@ function listarUserRole() {
          $result= $this->consulta($sql);
         
          while($row= $this->fetch_array($result)){
-             $data[]=$row;
+             $userrole=new userRole();
+             $userrole->setId($row['id_userrole']);
+             $userrole->setName($row['name']);
+             $data[]=$userrole;
             }
      
         $this->disconnect();

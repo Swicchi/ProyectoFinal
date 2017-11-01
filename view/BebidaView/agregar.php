@@ -16,7 +16,7 @@
             <div class="panel-body">
                 <div class="row">
                     <div class="col-lg-6">
-                        <form role="form" action="index.php?accion=nuevaBebida" method="post">
+                        <form role="form" action="index.php?nuevaBebida" method="post">
                             <div class="center-block">
                             <div class="control-group">
                                 <div class="form-group floating-label-form-group controls">
@@ -40,8 +40,8 @@
                                 </div>
                             </div>
                            
-                            <button type="submit" class="btn btn-default">Submit Button</button>
-                            <button type="reset" class="btn btn-default">Reset Button</button>
+                            <button type="submit" class="btn btn-default">Enviar</button>
+                            <button type="reset" class="btn btn-default">Limpiar</button>
                         </div>
                         </form>
                     </div>

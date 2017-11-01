@@ -42,11 +42,15 @@ function validar(){
                                 <tbody>
                                     <?php foreach ($data as  $value):?>
                                      <tr class="odd gradeA">
-                                        <td><?php echo  $value['user'];?></td>
-                                         <td><?php echo  $value['password'];?></td>
-                                       <td><?php echo  $value['name'];?></td>
-                                       <td><a class="btn btn-success btn-lg"  href="index.php?id=<?php echo  $value['id_user'];?>&action=eliminarUsuario" onclick="return validar();">Eliminar</a></td>
-                                       <td><a class="btn btn-success btn-lg"  href="index.php?id=<?php echo  $value['id_user'];?>&action=editarUsuario">Editar</a></td>
+                                        <td><?php echo  $value->getName();?></td>
+                                         <td><?php echo  $value->getUserPass();?></td>
+                                       <td><?php echo  $value->getRol()->getName();?></td>
+                                       <?php if ( $value->getRol()->getName()=="Administrador") {  ?>
+                                       <td><button class="btn btn-danger btn-lg"  disabled="true"  >Eliminar</button></td>
+                                      <?php }else{  ?>
+                                       <td><a class="btn btn-danger btn-lg"  href="index.php?id=<?php echo  $value->getId();?>&action=eliminarUsuario" onclick="return validar();">Eliminar</a></td>
+                                      <?php }  ?>
+                                       <td><a class="btn btn-success btn-lg"  href="index.php?id=<?php echo  $value->getId();?>&action=editarUsuario">Editar</a></td>
                                     </tr>
                                       <?php endforeach;?>
                                     </tbody>

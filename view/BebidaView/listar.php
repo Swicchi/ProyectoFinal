@@ -43,14 +43,13 @@ function validar(){
                                   
                                     <?php foreach ($data as  $value):?>
                                      <tr class="odd gradeA">
-                                        <td><?php echo  $value['nombre'];?></td>
-                                        <td><?php echo  $value['precio'];?></td>
-                                        <td><?php echo  $value['detalle'];?></td>
-                                       <td><a class="btn btn-success btn-lg"  href="index.php?id=<?php echo  $value['id_bebestible'];?>&action=eliminarBebida" onclick="return validar();">Eliminar</a></td>
-                                       <td><a class="btn btn-success btn-lg"  href="index.php?id=<?php echo  $value['id_bebestible'];?>&action=editarBebida">Editar</a></td>
+                                        <td><?php echo  $value->getName();?></td>
+                                        <td><?php echo  $value->getPrecio();?></td>
+                                        <td><?php echo  $value->getDetalle();?></td>
+                                       <td><a class="btn btn-danger btn-lg"  href="index.php?id=<?php echo  $value->getId();?>&action=eliminarBebida" onclick="return validar();">Eliminar</a></td>
+                                       <td><a class="btn btn-success btn-lg"  href="index.php?id=<?php echo  $value->getId();?>&action=editarBebida">Editar</a></td>
                                     </tr>
                                       <?php endforeach;?>
-                                    
                                     </tbody>
                                 </table>
                               <?php } else {

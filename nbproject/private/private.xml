@@ -13,31 +13,34 @@
             <file>file:/C:/xampp/htdocs/ProyectoFinal/model/AlimentoModel/AlimentoDAO.php</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/view/BebidaView/listar.php</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/controller/SiteController.php</file>
+            <file>file:/C:/xampp/htdocs/ProyectoFinal/view/layoutGerente.php</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/model/BebidaModel/BebidaDAO.php</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/view/AlimentoView/agregar.php</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/controller/PlatoController.php</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/view/AlimentoView/listar.php</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/model/UserModel/User.php</file>
+            <file>file:/C:/xampp/htdocs/ProyectoFinal/view/login.php</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/view/PlatoView/agregar.php</file>
+            <file>file:/C:/xampp/htdocs/ProyectoFinal/view/PlatoView/listaringrediente.php</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/model/AlimentoModel/Alimento.php</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/view/main.php</file>
-            <file>file:/C:/xampp/htdocs/ProyectoFinal/index.php</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/view/PlatoView/modificar.php</file>
+            <file>file:/C:/xampp/htdocs/ProyectoFinal/index.php</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/view/UserView/agregar.php</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/model/UserModel/userRole.php</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/controller/UserController.php</file>
-            <file>file:/C:/xampp/htdocs/ProyectoFinal/view/layout.php</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/model/UserModel/Usuario.php</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/view/UserView/listar.php</file>
+            <file>file:/C:/xampp/htdocs/ProyectoFinal/view/layout.php</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/model/PlatoModel/Usuario.php</file>
+            <file>file:/C:/xampp/htdocs/ProyectoFinal/view/layoutCocinero.php</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/controller/CoreController.php</file>
-            <file>file:/C:/xampp/htdocs/ProyectoFinal/view/index.html</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/model/PlatoModel/PlatoDAO.php</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/view/PlatoView/listar.php</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/model/UserModel/UserRoleDAO.php</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/view/AlimentoView/modificar.php</file>
-            <file>file:/C:/xampp/htdocs/ProyectoFinal/model/PlatoModel/TipoPlato.php</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/model/PlatoModel/Plato.php</file>
+            <file>file:/C:/xampp/htdocs/ProyectoFinal/model/PlatoModel/TipoPlato.php</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/controller/BebidaController.php</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/model/conexionDB.php</file>
         </group>

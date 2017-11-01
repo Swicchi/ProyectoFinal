@@ -44,25 +44,28 @@
 
                             <?php foreach ($data as $value): ?>
                                 <tr class="odd gradeA">
-                                    <td><?php echo $value['nombre']; ?></td>
-                                    <td><?php echo $value['precio']; ?></td>
-                                    <td><?php echo $value['nombre_tipo']; ?></td>
+                                    <td><?php echo $value->getNombre(); ?></td>
+                                    <td><?php echo $value->getPrecio(); ?></td>
+                                    <td><?php echo $value->getId_tipo()->getName(); ?></td>
                                     <td><?php
-                                        If ($value[6] != null) {
-                                            foreach ($value[6] as $ing):
-                                                echo $ing['nombre'];
+                                        If ($value->getIngredientes() != null) {
+                                            foreach ($value->getIngredientes() as $ing):
+                                                if ($ing!=null){
+                                                echo $ing->getName();
                                                 echo '  ';
+                                                } else {
+                                                    
+                                                }
                                             endforeach;
                                             ?>
-                                            <div class="pull-right"><a class="btn btn-success btn-lg"  href="index.php?id=<?php echo $value['id_plato']; ?>&action=ingredientePlato">Agregar Ingrediente</a>    
-                                            </div>  <?php }else {
+                                             <?php }else {
                                               echo 'No Hay Ingredientes';
                                                 ?>
-                                             <div class="pull-right"><a class="btn btn-success btn-lg"  href="index.php?id=<?php echo $value['id_plato']; ?>&action=ingredientePlato" >Agregar Ingrediente</a>    
-                                            </div><?php }
-                            ?></td>
-                                    <td><a class="btn btn-success btn-lg"  href="index.php?id=<?php echo $value['id_plato']; ?>&action=eliminarPlato" onclick="return validar();">Eliminar</a></td>
-                                    <td><a class="btn btn-success btn-lg"  href="index.php?id=<?php echo $value['id_plato']; ?>&action=editarPlato">Editar</a></td>
+                                             <?php }
+                            ?><div class="pull-right"><a class="btn btn-success btn-lg"  href="index.php?id=<?php echo $value->getId(); ?>&action=ingredientePlato" >Agregar Ingrediente</a>    
+                                            </div></td>
+                                    <td><a class="btn btn-danger btn-lg"  href="index.php?id=<?php echo $value->getId(); ?>&action=eliminarPlato" onclick="return validar();">Eliminar</a></td>
+                                    <td><a class="btn btn-success btn-lg"  href="index.php?id=<?php echo $value->getId(); ?>&action=editarPlato">Editar</a></td>
                                 </tr>
     <?php endforeach; ?>
 

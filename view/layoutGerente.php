@@ -75,18 +75,6 @@
                           
                        
                         <li>
-                            <a href="#"><i class="fa fa-user fa-fw"></i> Gestion de Usuarios<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="index.php?action=agregarUsuario">Agregar Usuario</a>
-                                </li>
-                                <li>
-                                    <a href="index.php?action=listarUsuario">Listar Usuarios</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
                        
                             <a href="#"><i class="fa fa-cutlery fa-fw"></i> Gestion de Menus<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">

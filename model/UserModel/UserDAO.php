@@ -1,6 +1,6 @@
 <?php
 require "model/conexionDB.php";
-require 'model/UserModel/user.php';
+require 'model/UserModel/User.php';
 class UserDAO extends conexionDB{
 
   function addUSer(User $user){
@@ -16,7 +16,15 @@ class UserDAO extends conexionDB{
          $result= $this->consulta($sql);
            if ($this->count_filas($result) > 0) { 
          while($row=$this->fetch_assoc($result)){
-             $data[]=$row;
+             $user= new User();
+             $user->setId($row['id_user']);
+             $user->setName($row['user']);
+             $userrole= new userRole();
+             $userrole->setId($row['id_userrole']);
+             $userrole->setName($row['name']);
+             $user->setRol($userrole);
+             $user->setUserPass($row['password']);
+             $data[]=$user;
             }
         $this->disconnect();
       
@@ -27,19 +35,28 @@ class UserDAO extends conexionDB{
     
 
   }
-  function  deleteUser($id){
+  function  deleteUser(User $user){
       $this->conectar();
-      $consulta = $this->consulta("DELETE FROM `user` WHERE id_user ='$id'");
+      $consulta = $this->consulta("DELETE FROM `user` WHERE id_user ='".$user->getId()."'");
       $this->disconnect();
       return $consulta;
       
   }
-   function getUser($id) {
+   function getUser(User $user) {
         $this->conectar();
-        $query = "SELECT * FROM `user` NATURAL JOIN `userrole` WHERE `id_user` = '$id'";
-        $query = $this->consulta($query);
-        $tsArray = $this->fetch_assoc($query);
-        return $tsArray;
+        $query = "SELECT * FROM `user` NATURAL JOIN `userrole` WHERE `id_user` = '".$user->getId()."'";
+        $result = $this->consulta($query);
+        $tsArray = $this->fetch_assoc($result);
+         
+             $user->setId($tsArray['id_user']);
+             $user->setName($tsArray['user']);
+             $userrole= new userRole();
+             $userrole->setId($tsArray['id_userrole']);
+             $userrole->setName($tsArray['name']);
+             $user->setRol($userrole);
+             $user->setUserPass($tsArray['password']);
+             
+        return $user;
     }
   //conexion a la base de datos
    function editUser(User $user) {
@@ -48,5 +65,25 @@ class UserDAO extends conexionDB{
                 . "`user`='".$user->getName()."',`password`='".$user->getUserPass()."',`id_userrole`=".$user->getRol()." WHERE `id_user` = ".$user->getId();
         $this->consulta($query);
         $this->disconnect();
+    }
+     function getLoginUser(User $user) {
+        $this->conectar();
+        $query = "SELECT * FROM `user` NATURAL JOIN `userrole` WHERE `user` = '".$user->getName()."' and password  = '".$user->getUserPass()."'";
+        $result = $this->consulta($query);
+         if ($this->count_filas($result) > 0) { 
+        $tsArray = $this->fetch_assoc($result);
+         
+             $user->setId($tsArray['id_user']);
+             $user->setName($tsArray['user']);
+             $userrole= new userRole();
+             $userrole->setId($tsArray['id_userrole']);
+             $userrole->setName($tsArray['name']);
+             $user->setRol($userrole);
+             $user->setUserPass($tsArray['password']);
+             
+        return $user;
+         } else {
+         return '';    
+         }
     }
 }

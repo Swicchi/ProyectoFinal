@@ -43,9 +43,9 @@ function validar(){
                                   
                                     <?php foreach ($data as  $value):?>
                                      <tr class="odd gradeA">
-                                        <td><?php echo  $value['nombre'];?></td>
-                                       <td><a class="btn btn-success btn-lg"  href="index.php?id=<?php echo  $value['id_alimento'];?>&action=eliminarAlimento" onclick="return validar();">Eliminar</a></td>
-                                       <td><a class="btn btn-success btn-lg"  href="index.php?id=<?php echo  $value['id_alimento'];?>&action=editarAlimento">Editar</a></td>
+                                        <td><?php echo  $value->getName();?></td>
+                                       <td><a class="btn btn-danger btn-lg"  href="index.php?id=<?php echo  $value->getId();?>&action=eliminarAlimento" onclick="return validar();">Eliminar</a></td>
+                                       <td><a class="btn btn-success btn-lg"  href="index.php?id=<?php echo  $value->getId();?>&action=editarAlimento">Editar</a></td>
                                     </tr>
                                       <?php endforeach;?>
                                     
