@@ -12,7 +12,7 @@ class Plato  {
     private $precio;
     private $id_tipo;
     private $ingredientes;
-    
+    private $image;
     private $noingredientes;
     function getId() {
         return $this->id;
@@ -36,7 +36,13 @@ class Plato  {
      function getnoIngredientes() {
         return $this->noingredientes;
     }
+  function getImage() {
+        return $this->image;
+    }
 
+    function setImage($image) {
+        $this->image = $image;
+    }
     function setId($id) {
         $this->id = $id;
     }

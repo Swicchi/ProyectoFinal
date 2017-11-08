@@ -1,4 +1,4 @@
-
+﻿
 <script>
     function validar() {
         //Ingresamos un mensaje a mostrar
@@ -38,6 +38,7 @@
                                 <th>Ingredientes</th>
                                 <th>Acción Eliminar</th>
                                 <th>Acción Editar</th>
+                                <th>Imagen</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -66,11 +67,37 @@
                                             </div></td>
                                     <td><a class="btn btn-danger btn-lg"  href="index.php?id=<?php echo $value->getId(); ?>&action=eliminarPlato" onclick="return validar();">Eliminar</a></td>
                                     <td><a class="btn btn-success btn-lg"  href="index.php?id=<?php echo $value->getId(); ?>&action=editarPlato">Editar</a></td>
+ <td><button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal<?php echo $value->getId(); ?>">
+                                    Ver Imagen
+                                    </button></td>
                                 </tr>
+                             <div class="modal fade" id="myModal<?php echo $value->getId();?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4 class="modal-title" id="myModalLabel"><?php echo $value->getNombre(); ?></h4>
+                                        </div>
+                                        <div class="modal-body">
+                                           
+                                           
+                                            
+                                            <img  width="400" height="200" src="<?php echo $value->getImage();?>">
+                                            
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                        </div>
+                                    </div>
+                                    <!-- /.modal-content -->
+                                </div>
+                                <!-- /.modal-dialog -->
+                            </div>
     <?php endforeach; ?>
 
                         </tbody>
                     </table>
+                   
                 <?php
                 } else {
                     echo '<h1>No Hay Datos</h1>';

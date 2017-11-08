@@ -72,18 +72,19 @@ if (count($_POST) > 0) {
         $mvc->modificarPlato();
     }
 } else {
-    if(!isset($_SESSION['username'])){
-    require 'controller/SiteController.php';
-     //se instancia al controlador
-     $mvc = new SiteController();
-     $mvc->principal(true);
-    }else
+   
     if ($accion == '') {
         require 'controller/SiteController.php';
         //se instancia al controlador
         $mvc = new SiteController();
         $mvc->principal();
-    } else if ($accion == 'agregarUsuario') {
+    } else
+         if(!isset($_SESSION['username'])){
+    require 'controller/SiteController.php';
+     //se instancia al controlador
+     $mvc = new SiteController();
+     $mvc->principal(true);
+    }else if ($accion == 'agregarUsuario') {
         require 'controller/UserController.php';
         //se instancia al controlador
         $mvc = new UserController();

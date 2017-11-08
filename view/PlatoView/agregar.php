@@ -16,7 +16,7 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-6">
-                            <form role="form" action="index.php?nuevoPlato" method="post">
+                            <form role="form" action="index.php?nuevoPlato" method="post" enctype="multipart/form-data">
                                 <div class="center-block">
                                     <div class="control-group">
                                         <div class="form-group floating-label-form-group controls">
@@ -32,7 +32,15 @@
                                             <p class="help-block text-danger"></p>
                                         </div>
                                     </div>
-
+                                   
+                                    <div class="control-group">
+                                        <div class="form-group floating-label-form-group controls">
+                                            <label>Imagen del plato</label>
+                                            <input id="image" name="image" type="file" size="20"  required >
+                                            <p class="help-block text-danger"></p>
+                                        </div>
+                                    </div>
+                                    
                                     <div class="form-group">
 
                                         <label>Seleccione tipo de plato</label>
@@ -42,7 +50,7 @@
                                             <?php endforeach; ?> 
                                         </select>
                                     </div>
-
+                                    
                                     <button type="submit" class="btn btn-default">Enviar</button>
                                     <button type="reset" class="btn btn-default">Limpiar</button>
                                 </div>

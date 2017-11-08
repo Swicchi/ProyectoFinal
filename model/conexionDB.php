@@ -9,7 +9,7 @@ class conexionDB {
     /* METODO PARA CONECTAR CON LA BASE DE DATOS */
     public function conectar() {
         if (!isset($this->conexion)) {
-            $this->conexion = mysqli_connect("localhost","root","","bdfinal");
+            $this->conexion = mysqli_connect("localhost","remferna","TbHpo54sQSSS","remferna");
         }
     }
 

@@ -8,14 +8,14 @@ class PlatoDAO extends conexionDB {
 
     function addPlato(Plato $plato) {
         $this->conectar();
-        $consulta = $this->consulta("INSERT INTO `plato`( `nombre`, `precio`, `id_tipoplato`) VALUES ('" . $plato->getNombre() . "','" . $plato->getPrecio() . "'," . $plato->getId_tipo() . ") ");
+        $consulta = $this->consulta("INSERT INTO `plato`( `nombre`, `precio`, `srcIMG`,`id_tipoplato` ) VALUES ('" . $plato->getNombre() . "','" . $plato->getPrecio() . "','" . $plato->getImage() . "'," . $plato->getId_tipo() . ") ");
         $this->disconnect();
         return $consulta;
     }
 
     function listarPlatos() {
         $this->conectar();
-        $sql = "SELECT p.id_plato, p.nombre, p.precio, t.nombre_tipo FROM plato AS p NATURAL JOIN tipoplato AS t ;";
+        $sql = "SELECT p.id_plato, p.nombre, p.precio, p.srcIMG, t.nombre_tipo FROM plato AS p NATURAL JOIN tipoplato AS t ;";
         $result = $this->consulta($sql);
         if ($this->count_filas($result) > 0) {
             while ($row = $this->fetch_assoc($result)) {
@@ -23,6 +23,7 @@ class PlatoDAO extends conexionDB {
                 $plato->setId($row['id_plato']);
                 $plato->setNombre($row['nombre']);
                 $plato->setPrecio($row['precio']);
+                $plato->setImage($row['srcIMG']);
                 $tipoplato = new TipoPlato();
                 $tipoplato->setName($row['nombre_tipo']);
                 $plato->setId_tipo($tipoplato);
@@ -67,6 +68,8 @@ class PlatoDAO extends conexionDB {
         $plato->setId($tsArray['id_plato']);
         $plato->setNombre($tsArray['nombre']);
         $plato->setPrecio($tsArray['precio']);
+        $plato->setImage($tsArray['srcIMG']);
+                
         $tipoplato = new TipoPlato();
         $tipoplato->setId($tsArray['id_tipoplato']);
         $tipoplato->setName($tsArray['nombre_tipo']);
@@ -78,7 +81,7 @@ class PlatoDAO extends conexionDB {
     function editPlato(Plato $plato) {
         $this->conectar();
         $query = "UPDATE plato SET "
-                . "nombre= '" . $plato->getNombre() . "' ,precio=" . $plato->getPrecio() . ",id_tipoplato=" . $plato->getId_tipo() . " WHERE id_plato = " . $plato->getId();
+                . "nombre= '" . $plato->getNombre() . "' ,srcIMG='". $plato->getImage() ."',precio=" . $plato->getPrecio() . ",id_tipoplato=" . $plato->getId_tipo() . " WHERE id_plato = " . $plato->getId();
         $this->consulta($query);
         $this->disconnect();
     }

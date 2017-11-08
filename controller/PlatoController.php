@@ -61,18 +61,32 @@ class PlatoController extends CoreController {
         $plato->setNombre($_POST['nombre']);
         $plato->setPrecio($_POST['precio']);
         $plato->setId_tipo($_POST['tipo']);
-
+        $nombre_img=$_FILES['image']['name'];
+        $tipo_img=$_FILES['image']['type'];
+        $size_img=$_FILES['image']['size'];
+        if(isset($_FILES)){
+        if(($tipo_img!="image/png"&&$tipo_img!="image/jpeg")||$size_img>200000){
+            echo '<script language="javascript">alert("Formato o tamaño de arhivo incorrecto");</script>';
+            $this->agregarPlato();
+        }else{
+            $content=$_SERVER['DOCUMENT_ROOT']."/remferna/ProyectoFinal/img/";
+  
+            move_uploaded_file($_FILES['image']['tmp_name'], $content.$nombre_img);
+      
+        $plato->setImage("http://parra.chillan.ubiobio.cl:8070/remferna/ProyectoFinal/img/".$nombre_img);  
         $platoDao = new PlatoDAO();
 
         $platoDao->addPlato($plato);
         echo '<script language="javascript">alert("Plato Agregado Correctamente");</script>';
         $this->listarPlatos();
+      }}else{
+            $platoDao = new PlatoDAO();
 
-
-
-
-
-        //Se muestra la pagina
+            $platoDao->addPlato($plato);
+            echo '<script language="javascript">alert("Plato Agregado Correctamente");</script>';
+             $this->listarPlatos();
+        }
+//Se muestra la pagina
     }
 
     function modificarPlato() {
@@ -82,12 +96,34 @@ class PlatoController extends CoreController {
         $plato->setNombre($_POST['nombre']);
         $plato->setPrecio($_POST['precio']);
         $plato->setId_tipo($_POST['tipo']);
+        $nombre_img=$_FILES['image']['name'];
+        $tipo_img=$_FILES['image']['type'];
+        $size_img=$_FILES['image']['size'];
+        
+        
+        if($nombre_img!=''){
+      if(($tipo_img!="image/png"&&$tipo_img!="image/jpeg")||$size_img>200000){
+            echo '<script language="javascript">alert("Formato o tamaño de arhivo incorrecto");</script>';
+            $this->listarPlatos();
+        }else{
+            $content=$_SERVER['DOCUMENT_ROOT']."/remferna/ProyectoFinal/img/";
+  
+            move_uploaded_file($_FILES['image']['tmp_name'], $content.$nombre_img);
+      
+        $plato->setImage("http://parra.chillan.ubiobio.cl:8070/remferna/ProyectoFinal/img/".$nombre_img);  
         $platoDao = new PlatoDAO();
         $platoDao->editPlato($plato);
         $this->listarPlatos();
 
 
         //Se muestra la pagina
+      }}else{
+             $plato->setImage($_POST['ruta']);  
+            $platoDao = new PlatoDAO();
+             $platoDao->editPlato($plato);
+        $this->listarPlatos();
+            
+        }
     }
 
     function borrarPlato() {
