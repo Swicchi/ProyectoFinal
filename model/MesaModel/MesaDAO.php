@@ -3,7 +3,7 @@
 require_once "model/conexionDB.php";
 require 'model/BebidaModel/Bebida.php';
 
-class BebidaDAO extends conexionDB {
+class MesaDAO extends conexionDB {
 
     function addBebida(Bebida $bebida) {
         $this->conectar();

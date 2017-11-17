@@ -13,6 +13,7 @@
             <file>file:/C:/xampp/htdocs/ProyectoFinal/model/AlimentoModel/AlimentoDAO.php</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/view/BebidaView/listar.php</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/controller/SiteController.php</file>
+            <file>file:/C:/xampp/htdocs/ProyectoFinal/servicios/obtener_platos.php</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/view/layoutGerente.php</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/model/BebidaModel/BebidaDAO.php</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/view/AlimentoView/agregar.php</file>
@@ -35,6 +36,7 @@
             <file>file:/C:/xampp/htdocs/ProyectoFinal/model/PlatoModel/Usuario.php</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/view/layoutCocinero.php</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/controller/CoreController.php</file>
+            <file>file:/C:/xampp/htdocs/ProyectoFinal/servicios/conexionDB.php</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/model/PlatoModel/PlatoDAO.php</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/view/PlatoView/listar.php</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/model/UserModel/UserRoleDAO.php</file>

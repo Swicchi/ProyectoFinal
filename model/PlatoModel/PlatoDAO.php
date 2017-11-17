@@ -1,6 +1,6 @@
 <?php
 
-require "model/conexionDB.php";
+require_once "model/conexionDB.php";
 require 'model/PlatoModel/Plato.php';
 require 'model/AlimentoModel/Alimento.php';
 
@@ -15,7 +15,7 @@ class PlatoDAO extends conexionDB {
 
     function listarPlatos() {
         $this->conectar();
-        $sql = "SELECT p.id_plato, p.nombre, p.precio, p.srcIMG, t.nombre_tipo FROM plato AS p NATURAL JOIN tipoplato AS t ;";
+        $sql = "SELECT p.id_plato, p.nombre, p.precio, p.srcIMG, t.nombre_tipo FROM plato AS p NATURAL JOIN tipoplato AS t ORDER BY t.nombre_tipo ASC;";
         $result = $this->consulta($sql);
         if ($this->count_filas($result) > 0) {
             while ($row = $this->fetch_assoc($result)) {

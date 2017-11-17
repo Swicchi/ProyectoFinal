@@ -14,6 +14,7 @@ class Plato  {
     private $ingredientes;
     private $image;
     private $noingredientes;
+    private $cantidad;
     function getId() {
         return $this->id;
     }
@@ -33,16 +34,19 @@ class Plato  {
     function getIngredientes() {
         return $this->ingredientes;
     }
-     function getnoIngredientes() {
-        return $this->noingredientes;
-    }
-  function getImage() {
+
+    function getImage() {
         return $this->image;
     }
 
-    function setImage($image) {
-        $this->image = $image;
+    function getNoingredientes() {
+        return $this->noingredientes;
     }
+
+    function getCantidad() {
+        return $this->cantidad;
+    }
+
     function setId($id) {
         $this->id = $id;
     }
@@ -62,8 +66,17 @@ class Plato  {
     function setIngredientes($ingredientes) {
         $this->ingredientes = $ingredientes;
     }
-    function setnoIngredientes($noingredientes) {
+
+    function setImage($image) {
+        $this->image = $image;
+    }
+
+    function setNoingredientes($noingredientes) {
         $this->noingredientes = $noingredientes;
+    }
+
+    function setCantidad($cantidad) {
+        $this->cantidad = $cantidad;
     }
 
 

@@ -6,38 +6,29 @@
  * and open the template in the editor.
  */
 
-class Bebida  {
+class Mesa  {
     private $id;
     private $bebidaName;
     private $precio;
     private $detalle;
-    private $cantidad;
-    function getId() {
+    function setId($id){
+        $this->id=$id;
+    }
+    function setName($bebidaName){
+        $this->bebidaName=$bebidaName;
+    }
+    function getId(){
         return $this->id;
     }
-
-    function getName() {
+    function getName(){
         return $this->bebidaName;
     }
-
     function getPrecio() {
         return $this->precio;
     }
 
     function getDetalle() {
         return $this->detalle;
-    }
-
-    function getCantidad() {
-        return $this->cantidad;
-    }
-
-    function setId($id) {
-        $this->id = $id;
-    }
-
-    function setName($bebidaName) {
-        $this->bebidaName = $bebidaName;
     }
 
     function setPrecio($precio) {
@@ -48,9 +39,5 @@ class Bebida  {
         $this->detalle = $detalle;
     }
 
-    function setCantidad($cantidad) {
-        $this->cantidad = $cantidad;
-    }
 
- 
 }

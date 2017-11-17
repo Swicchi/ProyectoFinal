@@ -1,5 +1,5 @@
 <?php
-require "model/conexionDB.php";
+require_once "model/conexionDB.php";
 require 'model/UserModel/User.php';
 class UserDAO extends conexionDB{
 
@@ -70,7 +70,7 @@ class UserDAO extends conexionDB{
         $this->conectar();
         $query = "SELECT * FROM `user` NATURAL JOIN `userrole` WHERE `user` = '".$user->getName()."' and password  = '".$user->getUserPass()."'";
         $result = $this->consulta($query);
-         if ($this->count_filas($result) > 0) { 
+         if ($this->count_filas($result) == 1) { 
         $tsArray = $this->fetch_assoc($result);
          
              $user->setId($tsArray['id_user']);

@@ -1,9 +1,9 @@
 <?php
 
 require_once "model/conexionDB.php";
-require 'model/BebidaModel/Bebida.php';
+require 'model/GarzonModel/Garzon.php';
 
-class BebidaDAO extends conexionDB {
+class GarzonDAO extends conexionDB {
 
     function addBebida(Bebida $bebida) {
         $this->conectar();

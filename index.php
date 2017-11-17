@@ -84,7 +84,13 @@ if (count($_POST) > 0) {
      //se instancia al controlador
      $mvc = new SiteController();
      $mvc->principal(true);
-    }else if ($accion == 'agregarUsuario') {
+    }else
+        if ($accion == 'preparado') {
+        require 'controller/OrdenController.php';
+        //se instancia al controlador
+        $mvc = new OrdenController();
+        $mvc->modificarOrden();
+    } else if ($accion == 'agregarUsuario') {
         require 'controller/UserController.php';
         //se instancia al controlador
         $mvc = new UserController();

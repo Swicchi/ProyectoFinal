@@ -1,6 +1,6 @@
 <?php
 
-require "model/conexionDB.php";
+require_once "model/conexionDB.php";
 require 'model/AlimentoModel/Alimento.php';
 
 class AlimentoDAO extends conexionDB {

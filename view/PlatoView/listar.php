@@ -78,12 +78,11 @@
                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                             <h4 class="modal-title" id="myModalLabel"><?php echo $value->getNombre(); ?></h4>
                                         </div>
-                                        <div class="modal-body">
+                                        <div  class="modal-body">
                                            
-                                           
-                                            
-                                            <img  width="400" height="200" src="<?php echo $value->getImage();?>">
-                                            
+                                            <div align="center">
+                                            <img   width="400" height="200" src="<?php echo $value->getImage();?>">
+                                            </div>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>

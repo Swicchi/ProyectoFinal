@@ -53,10 +53,10 @@
                                         </div>
                                         <div class="modal-body">
                                            
-                                           
+                                           <div align="center">
                                             
                                             <img width="400" height="200" src="<?php echo $plato->getImage();?>">
-                                            
+                                           </div>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>

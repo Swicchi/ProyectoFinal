@@ -47,7 +47,7 @@
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
               
-                <a class="navbar-brand" href="index.php">Administracion del Sistema</a>
+                <a class="navbar-brand" href="#">Administracion del Sistema</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -132,7 +132,30 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                     
+                     <li>
+                            <a href="#"><i class="fa fa-users fa-fw"></i> Gestion de Garzones<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="index.php?action=agregarGarzon">Agregar Garzon</a>
+                                </li>
+                                <li>
+                                    <a href="index.php?action=listarGarzon">Listar Garzones</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-table fa-fw"></i> Gestion de Mesas<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="index.php?action=agregarMesa">Agregar Mesa</a>
+                                </li>
+                                <li>
+                                    <a href="index.php?action=listarMesa">Listar Mesas</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
