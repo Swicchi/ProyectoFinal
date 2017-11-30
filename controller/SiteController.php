@@ -41,11 +41,18 @@ class SiteController extends CoreController {
         $_SESSION['username'] = $user2->getName();
         $_SESSION['userrol'] = serialize($user2->getRol()->getName());
         
-        if ($user2->getRol()->getName() == 'Cocinero' || $user2->getRol()->getName() == 'Garzon') {
+        if ($user2->getRol()->getName() == 'Cocinero' ) {
             
             $orden = new OrdenDAO();
             $data = $orden->listarOrdenes();
             include 'view/layoutCocinero.php';
+            $pagina = ob_get_clean();
+            $this->view_page($pagina);
+        } else if ( $user2->getRol()->getName() == 'Garzon') {
+            
+            $orden = new OrdenDAO();
+            $data = $orden->listarOrdenesGarzon();
+            include 'view/layoutGarzon.php';
             $pagina = ob_get_clean();
             $this->view_page($pagina);
         } else {

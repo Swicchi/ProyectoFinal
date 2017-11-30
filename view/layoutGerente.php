@@ -56,7 +56,7 @@
                 <!-- /.dropdown -->
                <li class="dropdown">
                     
-                    <a href="index.php" class="btn"><i class="fa fa-sign-out fa-fw"></i> Cerrar Sesión (<?php echo $_SESSION['username']?>)</a>
+                    <a href="index.php" class="btn"><i class="fa fa-sign-out fa-fw"></i> Cerrar Sesión </a>
                     <!-- /.dropdown-user -->
                 </li>
                 <!-- /.dropdown -->
@@ -114,8 +114,36 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                     
+                       <li>
+                            <a href="#"><i class="fa fa-users fa-fw"></i> Gestion de Garzones<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="index.php?action=agregarGarzon">Agregar Garzon</a>
+                                </li>
+                                <li>
+                                    <a href="index.php?action=listarGarzon">Listar Garzones</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-table fa-fw"></i> Gestion de Mesas<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="index.php?action=agregarMesa">Agregar Mesa</a>
+                                </li>
+                                <li>
+                                    <a href="index.php?action=listarMesa">Listar Mesas</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
                     </ul>
+                    <ul class="nav ">
+                      <li >
+                                   <a href="index.php?action=listarOrdenes"><i class="fa fa-archive fa-fw"></i>  Listar Ordenes</a>
+                      </li>
+                      </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
             </div>

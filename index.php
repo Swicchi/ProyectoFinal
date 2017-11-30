@@ -8,6 +8,7 @@ and open the template in the editor.
 session_start();
 $accion = !isset($_GET['action']) ? '' : $_GET['action'];
 //var_dump($_POST);exit();
+
 if (count($_POST) > 0) {
     if (isset($_GET['loginUser'])) {
         require 'controller/SiteController.php';
@@ -27,6 +28,8 @@ if (count($_POST) > 0) {
         $mvc = new UserController();
         $mvc->modificarUsuario();
     }
+
+
     //Alimentos
     if (isset($_GET['nuevoAlimento'])) {
         require 'controller/AlimentoController.php';
@@ -40,6 +43,7 @@ if (count($_POST) > 0) {
         $mvc = new AlimentoController();
         $mvc->modificarAlimento();
     }
+
     //Bebidas
     if (isset($_GET['nuevaBebida'])) {
         require 'controller/BebidaController.php';
@@ -53,6 +57,33 @@ if (count($_POST) > 0) {
         $mvc = new BebidaController();
         $mvc->modificarBebida();
     }
+    //Mesas
+    if (isset($_GET['nuevaMesa'])) {
+        require 'controller/MesaController.php';
+        //se instancia al controlador
+        $mvc = new MesaController();
+        $mvc->agregarNuevaMesa();
+    } else
+    if (isset($_GET['modificarMesa'])) {
+        require 'controller/MesaController.php';
+        //se instancia al controlador
+        $mvc = new MesaController();
+        $mvc->modificarMesa();
+    }
+    //Garzones
+    if (isset($_GET['nuevoGarzon'])) {
+        require 'controller/GarzonController.php';
+        //se instancia al controlador
+        $mvc = new GarzonController();
+        $mvc->agregarNuevaGarzon();
+    } else
+    if (isset($_GET['modificarGarzon'])) {
+        require 'controller/GarzonController.php';
+        //se instancia al controlador
+        $mvc = new GarzonController();
+        $mvc->modificarGarzon();
+    }
+
     //Platos
     if (isset($_GET['nuevoPlato'])) {
         require 'controller/PlatoController.php';
@@ -254,6 +285,11 @@ if (count($_POST) > 0) {
         //se instancia al controlador
         $mvc = new PlatoController();
         $mvc->eliminarIngrediente();
+    } else  if ($accion == 'listarOrdenes') {
+        require 'controller/OrdenController.php';
+        //se instancia al controlador
+        $mvc = new OrdenController();
+        $mvc->listarOrdenesGerente();
     }
 }
 ?>

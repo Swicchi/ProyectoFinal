@@ -192,7 +192,7 @@
                                                 });
                                                 function validar() {
                                                     //Ingresamos un mensaje a mostrar
-                                                    var mensaje = confirm('¿Desea realizr esta accion?');
+                                                    var mensaje = confirm('¿Desea realizar esta acción?');
                                                     //Detectamos si el usuario acepto el mensaje
                                                     if (mensaje) {
                                                         return true;

@@ -84,12 +84,13 @@
                                         <th>Numero Mesa</th>
                                         <th>Platos</th>
                                         <th>Bebidas</th>
+                                        <th>Monto Total</th>
                                         <th>Acción Actualizar</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     
-                                    <?php foreach ($data as $value):  ?>
+                                    <?php foreach ($data as $value): $monto=0; ?>
                                         <tr class="odd gradeA">
                                             <td><?php echo $value->getNumero(); ?></td>
                                             <td><?php echo $value->getHoraCreacion(); ?></td>
@@ -100,6 +101,7 @@
                                                     foreach ($value->getPlato() as $ing):
                                                         if ($ing != null) {
                                                             echo $ing->getCantidad().' x '.$ing->getNombre();
+                                                            $monto=$monto+($ing->getCantidad()*$ing->getPrecio());
                                                             echo ' <br>  ';
                                                         } else {
                                                             
@@ -117,6 +119,7 @@
                                                     foreach ($value->getBebida() as $ing):
                                                         if ($ing != null) {
                                                             echo $ing->getCantidad().' x '.$ing->getName().' '.$ing->getDetalle();
+                                                            $monto=$monto+($ing->getCantidad()*$ing->getPrecio());
                                                             echo ' <br> ';
                                                         } else {
                                                             
@@ -129,10 +132,12 @@
                                                 }
                                                     ?>
                                                 </td>
+                                                
+                                            <td><?php echo "$ ".$monto?></td>
                                                 <?php if($value->getHoraEntrega()==NULL&&$value->getEstado()==2){ ?>
                                             <td><a class="btn btn-danger btn-lg"  href="index.php?id=<?php echo $value->getNumero(); ?>&action=entregado" onclick="return validar();">Actualizar</a></td>
                                                 <?php }else if ($value->getHoraEntrega()==NULL&&$value->getEstado()==1) { ?>
-                                            <td><button class="btn btn-danger btn-lg" href="index.php?id=<?php echo $value->getNumero(); ?>&action=confirmar" onclick="return validar();">Confirmar</button></td>
+                                            <td><a class="btn btn-danger btn-lg" href="index.php?id=<?php echo $value->getNumero(); ?>&action=confirmar" onclick="return validar();">Confirmar</a></td>
                                                 <?php } else { ?>
                                             <td><button class="btn btn-danger btn-lg"  disabled="true" href="index.php?id=<?php echo $value->getNumero(); ?>&action=preparado" onclick="return validar();">Entregado</button></td>
                                                 <?php } ?>

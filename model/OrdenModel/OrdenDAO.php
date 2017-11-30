@@ -5,7 +5,6 @@ require 'model/OrdenModel/Orden.php';
 require 'model/BebidaModel/Bebida.php';
 require 'model/PlatoModel/Plato.php';
 class OrdenDAO extends conexionDB {
-
     function addOrden(Orden $bebida) {
         $this->conectar();
         $consulta = $this->consulta("INSERT INTO `bebestible`( `nombre`, `detalle`, `precio`)  VALUES ( '" . $bebida->getName() . "' , '" . $bebida->getDetalle() . "', " . $bebida->getPrecio() . " ) ");
@@ -39,7 +38,32 @@ class OrdenDAO extends conexionDB {
     }
 function listarOrdenesGarzon() {
         $this->conectar();
-        $sql = "SELECT * FROM orden NATURAL JOIN tipoorden NATURAL JOIN mesa WHERE estado = 1 OR horaPreparacion != NULL ;";
+        $sql = "SELECT * FROM orden NATURAL JOIN tipoorden NATURAL JOIN mesa WHERE estado = 1 OR horaPreparacion IS NOT NULL  ;";
+        $result = $this->consulta($sql);
+        if ($this->count_filas($result) > 0) {
+            while ($row = $this->fetch_assoc($result)) {
+                $orden = new Orden();
+                $orden->setNumero($row['numero_orden']);
+                $orden->setHoraCreacion($row['horaCreacion']);
+                $orden->setHoraPreparacion($row['horaPreparacion']);
+                $orden->setHoraEntrega($row['horaEntrega']);
+                $orden->setPlato($this->listarPlatos($row['numero_orden']));
+                $orden->setBebida($this->listarBebidas($row['numero_orden']));
+                $orden->setTipo($row['nombre']);
+                $orden->setMesa($row['numeroMesa']);
+                $orden->setEstado($row['estado']);
+                $data[] = $orden;
+            }
+            $this->disconnect();
+
+            return $data;
+        } else {
+            return'';
+        }
+    }
+    function listarOrdenesTodas() {
+        $this->conectar();
+        $sql = "SELECT * FROM orden NATURAL JOIN tipoorden NATURAL JOIN mesa  ;";
         $result = $this->consulta($sql);
         if ($this->count_filas($result) > 0) {
             while ($row = $this->fetch_assoc($result)) {
@@ -71,6 +95,7 @@ function listarOrdenesGarzon() {
                 $plato = new Plato();
                 $plato->setNombre($row3['nombre']);
                 $plato->setCantidad($row3['cantidad']);
+                $plato->setPrecio($row3['precio']);
                 $data2[] = $plato;
             }
 
@@ -87,6 +112,7 @@ function listarOrdenesGarzon() {
                 $bebida->setName($row3['nombre']);
                 $bebida->setDetalle($row3['detalle']);
                 $bebida->setCantidad($row3['cantidad']);
+                $bebida->setPrecio($row3['precio']);
                 $data2[] = $bebida;
             }
             return $data2;

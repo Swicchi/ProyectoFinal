@@ -8,7 +8,7 @@
 
 require_once 'controller/CoreController.php';
 require_once  'model/UserModel/UserDAO.php';
-require_once 'model/UserModel/UserRoleDAO.php';
+require_once  'model/UserModel/UserRoleDAO.php';
 
 class UserController extends CoreController {
 
@@ -64,10 +64,13 @@ class UserController extends CoreController {
 
         $userDao = new UserDAO();
 
-        $userDao->addUSer($user);
-        echo '<script language="javascript">alert("Usuario Agregado Correctamente");</script>';
+        if(!$userDao->addUSer($user)){
+            echo '<script language="javascript">alert("Usuario No Agregado (Nombre de usuario ya existe)");</script>';
+            $this->agregarUsuario();   
+        } else{   
+             echo '<script language="javascript">alert("Usuario Agregado ");</script>';
         $this->listarUsuarios();
-
+        }
 
 
 
@@ -84,7 +87,9 @@ class UserController extends CoreController {
         $user->setRol($_POST['rol']);
 
         $userDao = new UserDAO();
-        $userDao->editUser($user);
+        if(!$userDao->editUser($user)){
+             echo '<script language="javascript">alert("Usuario No Editado (Nombre de usuario ya existe)");</script>';
+        }
         $this->listarUsuarios();
 
 

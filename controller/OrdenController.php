@@ -97,9 +97,31 @@ class OrdenController extends CoreController {
 
         //Se muestra la pagina
     }
+    
+    function modificarOrdenGarzon() {
+        $orden = new Orden();
+        $orden->setNumero($_GET['id']);
+        $orden->setHoraEntrega(date('Y-m-d G:i:s'));
+        $ordenDao = new OrdenDAO();
+        $ordenDao->actOrdenGarzon($orden);
+        $this->listarOrdenesGarzon();
+
+
+        //Se muestra la pagina
+    }
+    function confirmarOrden() {
+        $orden = new Orden();
+        $orden->setNumero($_GET['id']);
+        $ordenDao = new OrdenDAO();
+        $ordenDao->confirmarOrden($orden);
+        $this->listarOrdenesGarzon();
+
+
+        //Se muestra la pagina
+    }
 
     function borrarBebida() {
-        $id = $_GET['id'];
+        $id = $_POST['id'];
         $bebida = new Bebida();
         $bebida->setId($id);
         $bebidaDao = new BebidaDAO();
@@ -118,6 +140,30 @@ class OrdenController extends CoreController {
         $data = $orden->listarOrdenes();
         include 'view/layoutCocinero.php';
         $pagina = ob_get_clean();
+        $this->view_page($pagina);
+    }
+     function listarOrdenesGarzon() {
+        //Inicio carga en buffer
+        ob_start();
+        $orden = new OrdenDAO();
+        $data = $orden->listarOrdenesGarzon();
+        include 'view/layoutGarzon.php';
+        $pagina = ob_get_clean();
+        $this->view_page($pagina);
+    }
+     function listarOrdenesGerente() {
+         $pagina = $this->load_template();
+
+        //Inicio carga en buffer
+        ob_start();
+        $ordenDAO = new OrdenDAO();
+        $data = $ordenDAO->listarOrdenesTodas();
+        include 'view/OrdenView/listar.php';
+        $content = ob_get_clean();
+        //Termino carga de bufer, se almacena todo en variable $content
+        //Se reemplaza la bandera del template por el contenido que deseo mostrar
+        $pagina = $this->replace_content('/\#CONTENIDO\#/ms', $content, $pagina);
+        //Se muestra la pagina
         $this->view_page($pagina);
     }
 

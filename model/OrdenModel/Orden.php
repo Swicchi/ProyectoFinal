@@ -16,6 +16,7 @@ class Orden  {
     private $estado;
     private $plato;
     private $bebida;
+    private $monto;
     function getNumero() {
         return $this->numero;
     }
@@ -50,7 +51,13 @@ class Orden  {
  function getEstado() {
         return $this->estado;
     }
+function getMonto() {
+        return $this->monto;
+    }
 
+    function setMonto($monto) {
+        $this->monto = $monto;
+    }
     function setEstado($estado) {
         $this->estado = $estado;
     }

@@ -7,16 +7,21 @@
  */
 
 require_once 'controller/CoreController.php';
-require_once 'model/BebidaModel/BebidaDAO.php';
-class BebidaController extends CoreController {
+require_once 'model/GarzonModel/GarzonDAO.php';
+require_once 'model/UserModel/UserDAO.php';
+require_once  'model/UserModel/UserRoleDAO.php';
+class GarzonController extends CoreController {
 
-    function agregarBebida() {
+    function agregarGarzon() {
 
         $pagina = $this->load_template();
 
         //Inicio carga en buffer
         ob_start();
-        include 'view/BebidaView/agregar.php';
+        $user = new UserDAO();
+        $data = $user->listarUsuarios();
+
+        include 'view/GarzonView/agregar.php';
         $content = ob_get_clean();
         //Termino carga de bufer, se almacena todo en variable $content
         //Se reemplaza la bandera del template por el contenido que deseo mostrar
@@ -26,21 +31,17 @@ class BebidaController extends CoreController {
         $this->view_page($pagina);
     }
 
-    function editarBebida() {
+    function editarGarzon() {
 
         $pagina = $this->load_template();
         $id = $_GET['id'];
-        $bebida=new Bebida();
-        $bebida->setId($id);
+        $garzon = new Garzon();
+        $garzon->setId($id);
         //Inicio carga en buffer
         ob_start();
-
-
-        $bebidaDAO = new BebidaDAO();
-        $bebida = $bebidaDAO->getBebida($bebida);
-
-
-        include 'view/BebidaView/modificar.php';
+        $garzonDAO = new GarzonDAO();
+        $garzon = $garzonDAO->getGarzon($garzon);
+        include 'view/GarzonView/modificar.php';
         $content = ob_get_clean();
         //Termino carga de bufer, se almacena todo en variable $content
         //Se reemplaza la bandera del template por el contenido que deseo mostrar
@@ -50,62 +51,75 @@ class BebidaController extends CoreController {
         $this->view_page($pagina);
     }
 
-    function agregarNuevaBebida() {
+    function agregarNuevaGarzon() {
 
-        $bebida = new Bebida();
-        $bebida->setName($_POST['name']);
-        $bebida->setPrecio($_POST['precio']);
-        $bebida->setDetalle($_POST['detalle']);
-        $bebidaDao = new BebidaDAO();
+        $garzon = new Garzon();
+        $garzon->setRut($_POST['rut']);
+        $garzon->setNombre($_POST['nombre']);
+        $garzon->setApellidoP($_POST['apellidoPaterno']);
+        $garzon->setApellidoM($_POST['apellidoMaterno']);
+        $garzon->setSueldo($_POST['sueldo']);
+        $garzon->setTelefono($_POST['telefono']);
+        $garzon->setDireccion($_POST['direccion']);
+        $user = new User();
+        $user->setId($_POST['user']);
+        $garzon->setUser($user);
+        $garzonDao = new GarzonDAO();
 
-        $bebidaDao->addBebida($bebida);
-        echo '<script language="javascript">alert("Bebida Agregada Correctamente");</script>';
-        $this->listarBebidas();
+        $garzonDao->addGarzon($garzon);
+        echo '<script language="javascript">alert("Garzon Agregado Correctamente");</script>';
+        $this->listarGarzones();
 
 
 
-
-
-        //Se muestra la pagina
-    }
-
-    function modificarBebida() {
-
-        $bebida = new Bebida();
-        $bebida->setId($_POST['id']);
-        $bebida->setName($_POST['name']);
-        $bebida->setPrecio($_POST['precio']);
-        $bebida->setDetalle($_POST['detalle']);
-
-        $bebidaDao = new BebidaDAO();
-        $bebidaDao->editBebida($bebida);
-        $this->listarBebidas();
 
 
         //Se muestra la pagina
     }
 
-    function borrarBebida() {
+    function modificarGarzon() {
+
+        $garzon = new Garzon();
+        $garzon->setId($_POST['id']);
+        $garzon->setRut($_POST['rut']);
+        $garzon->setNombre($_POST['nombre']);
+        $garzon->setApellidoP($_POST['apellidoPaterno']);
+        $garzon->setApellidoM($_POST['apellidoMaterno']);
+        $garzon->setSueldo($_POST['sueldo']);
+        $garzon->setTelefono($_POST['telefono']);
+        $garzon->setDireccion($_POST['direccion']);
+         $user = new User();
+        $user->setId($_POST['user']);
+        $garzon->setUser($user);
+        $garzonDao = new GarzonDAO();
+        $garzonDao->editGarzon($garzon);
+        $this->listarGarzones();
+
+
+        //Se muestra la pagina
+    }
+
+    function borrarGarzon() {
         $id = $_GET['id'];
-        $bebida=new Bebida();
-        $bebida->setId($id);
-        $bebidaDao = new BebidaDAO();
-        if ($bebidaDao->deleteBebida($bebida)) {
-            echo '<script language="javascript">alert("Bebida Eliminada");</script>';
+        $garzon = new Garzon();
+        $garzon->setId($id);
+        $garzonDao = new GarzonDAO();
+        if ($garzonDao->deleteGarzon($garzon)) {
+            echo '<script language="javascript">alert("Garzon Eliminado");</script>';
         } else {
-            echo '<script language="javascript">alert("Bebida NO Eliminada");</script>';
+            echo '<script language="javascript">alert("Garzon NO Eliminado");</script>';
         }
-        $this->listarBebidas();
+        $this->listarGarzones();
     }
 
-    function listarBebidas() {
+    function listarGarzones() {
         $pagina = $this->load_template();
 
         //Inicio carga en buffer
         ob_start();
-        $bebida = new BebidaDAO();
-        $data = $bebida->listarBebidas();
-        include 'view/BebidaView/listar.php';
+        $garzon = new GarzonDAO();
+        $data = $garzon->listarGarzones();
+        include 'view/GarzonView/listar.php';
         $content = ob_get_clean();
         //Termino carga de bufer, se almacena todo en variable $content
         //Se reemplaza la bandera del template por el contenido que deseo mostrar
