@@ -13,6 +13,7 @@ class Orden  {
     private $horaEntrega;
     private $tipo;
     private $mesa;
+    private $estado;
     private $plato;
     private $bebida;
     function getNumero() {
@@ -46,7 +47,13 @@ class Orden  {
     function getBebida() {
         return $this->bebida;
     }
+ function getEstado() {
+        return $this->estado;
+    }
 
+    function setEstado($estado) {
+        $this->estado = $estado;
+    }
     function setNumero($numero) {
         $this->numero = $numero;
     }

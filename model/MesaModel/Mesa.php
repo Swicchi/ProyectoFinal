@@ -8,35 +8,48 @@
 
 class Mesa  {
     private $id;
-    private $bebidaName;
-    private $precio;
-    private $detalle;
-    function setId($id){
-        $this->id=$id;
-    }
-    function setName($bebidaName){
-        $this->bebidaName=$bebidaName;
-    }
-    function getId(){
+    private $asientos;
+    private $codigo;
+    private $numero;
+    private $garzon;
+    function getId() {
         return $this->id;
     }
-    function getName(){
-        return $this->bebidaName;
-    }
-    function getPrecio() {
-        return $this->precio;
+
+    function getAsientos() {
+        return $this->asientos;
     }
 
-    function getDetalle() {
-        return $this->detalle;
+    function getCodigo() {
+        return $this->codigo;
     }
 
-    function setPrecio($precio) {
-        $this->precio = $precio;
+    function getNumero() {
+        return $this->numero;
     }
 
-    function setDetalle($detalle) {
-        $this->detalle = $detalle;
+    function getGarzon() {
+        return $this->garzon;
+    }
+
+    function setId($id) {
+        $this->id = $id;
+    }
+
+    function setAsientos($asientos) {
+        $this->asientos = $asientos;
+    }
+
+    function setCodigo($codigo) {
+        $this->codigo = $codigo;
+    }
+
+    function setNumero($numero) {
+        $this->numero = $numero;
+    }
+
+    function setGarzon($garzon) {
+        $this->garzon = $garzon;
     }
 
 

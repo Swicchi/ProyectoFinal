@@ -63,8 +63,9 @@ class UserDAO extends conexionDB{
         $this->conectar();
         $query = "UPDATE `user` SET "
                 . "`user`='".$user->getName()."',`password`='".$user->getUserPass()."',`id_userrole`=".$user->getRol()." WHERE `id_user` = ".$user->getId();
-        $this->consulta($query);
+       $consulta= $this->consulta($query);
         $this->disconnect();
+        return $consulta;
     }
      function getLoginUser(User $user) {
         $this->conectar();

@@ -27,6 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         $result = $db->consulta($sql);
         if ($db->count_filas($result) > 0) {
              while ($row = $db->fetch_assoc($result)) {
+                 $row['id_plato']= $row['id_bebestible'];
                 $row['nombre_tipo']="Bebestible";
                  $row['ingredientes'] = $row['detalle'] ;
                  $row['srcIMG']="https://image.freepik.com/iconos-gratis/tomar-bebidas_318-30501.jpg";
@@ -34,14 +35,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
              }
         $array["respuesta"] = true;
         $array['datos'] = $data;
+        $db->disconnect();
         echo json_encode($array);
         }else{
+            $db->disconnect();
             echo json_encode($array);
         }
     } else {
+        $db->disconnect();
         echo json_encode($array);
     }
 } else {
+    $db->disconnect();
     echo json_encode($array);
 }
 

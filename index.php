@@ -8,7 +8,6 @@ and open the template in the editor.
 session_start();
 $accion = !isset($_GET['action']) ? '' : $_GET['action'];
 //var_dump($_POST);exit();
-
 if (count($_POST) > 0) {
     if (isset($_GET['loginUser'])) {
         require 'controller/SiteController.php';
@@ -28,8 +27,6 @@ if (count($_POST) > 0) {
         $mvc = new UserController();
         $mvc->modificarUsuario();
     }
-
-
     //Alimentos
     if (isset($_GET['nuevoAlimento'])) {
         require 'controller/AlimentoController.php';
@@ -43,7 +40,6 @@ if (count($_POST) > 0) {
         $mvc = new AlimentoController();
         $mvc->modificarAlimento();
     }
-
     //Bebidas
     if (isset($_GET['nuevaBebida'])) {
         require 'controller/BebidaController.php';
@@ -57,7 +53,6 @@ if (count($_POST) > 0) {
         $mvc = new BebidaController();
         $mvc->modificarBebida();
     }
-
     //Platos
     if (isset($_GET['nuevoPlato'])) {
         require 'controller/PlatoController.php';
@@ -90,6 +85,18 @@ if (count($_POST) > 0) {
         //se instancia al controlador
         $mvc = new OrdenController();
         $mvc->modificarOrden();
+    } else
+        if ($accion == 'entregado') {
+        require 'controller/OrdenController.php';
+        //se instancia al controlador
+        $mvc = new OrdenController();
+        $mvc->modificarOrdenGarzon();
+    } else 
+        if ($accion == 'confirmar') {
+        require 'controller/OrdenController.php';
+        //se instancia al controlador
+        $mvc = new OrdenController();
+        $mvc->confirmarOrden();
     } else if ($accion == 'agregarUsuario') {
         require 'controller/UserController.php';
         //se instancia al controlador
@@ -159,6 +166,56 @@ if (count($_POST) > 0) {
         $mvc = new BebidaController();
         $mvc->listarBebidas();
     }
+    
+        //Garzones
+  else
+    if ($accion == 'agregarGarzon') {
+        require 'controller/GarzonController.php';
+        //se instancia al controlador
+        $mvc = new GarzonController();
+        $mvc->agregarGarzon();
+    } else if ($accion == 'editarGarzon') {
+        require 'controller/GarzonController.php';
+        //se instancia al controlador
+        $mvc = new GarzonController();
+        $mvc->editarGarzon();
+    } else if ($accion == 'eliminarGarzon') {
+        require 'controller/GarzonController.php';
+        //se instancia al controlador
+        $mvc = new GarzonController();
+        $mvc->borrarGarzon();
+    } else if ($accion == 'listarGarzon') {
+        require 'controller/GarzonController.php';
+        //se instancia al controlador
+        $mvc = new GarzonController();
+        $mvc->listarGarzones();
+    }
+    
+    
+       //Mesas
+  else
+    if ($accion == 'agregarMesa') {
+        require 'controller/MesaController.php';
+        //se instancia al controlador
+        $mvc = new MesaController();
+        $mvc->agregarMesa();
+    } else if ($accion == 'editarMesa') {
+        require 'controller/MesaController.php';
+        //se instancia al controlador
+        $mvc = new MesaController();
+        $mvc->editarMesa();
+    } else if ($accion == 'eliminarMesa') {
+        require 'controller/MesaController.php';
+        //se instancia al controlador
+        $mvc = new MesaController();
+        $mvc->borrarMesa();
+    } else if ($accion == 'listarMesa') {
+        require 'controller/MesaController.php';
+        //se instancia al controlador
+        $mvc = new MesaController();
+        $mvc->listarMesas();
+    }
+    
 
     //Platos
   else

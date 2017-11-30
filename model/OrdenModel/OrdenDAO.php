@@ -15,7 +15,7 @@ class OrdenDAO extends conexionDB {
 
     function listarOrdenes() {
         $this->conectar();
-        $sql = "SELECT * FROM orden NATURAL JOIN tipoorden NATURAL JOIN mesa ;";
+        $sql = "SELECT * FROM orden NATURAL JOIN tipoorden NATURAL JOIN mesa WHERE estado = 2;";
         $result = $this->consulta($sql);
         if ($this->count_filas($result) > 0) {
             while ($row = $this->fetch_assoc($result)) {
@@ -37,7 +37,31 @@ class OrdenDAO extends conexionDB {
             return'';
         }
     }
+function listarOrdenesGarzon() {
+        $this->conectar();
+        $sql = "SELECT * FROM orden NATURAL JOIN tipoorden NATURAL JOIN mesa WHERE estado = 1 OR horaPreparacion != NULL ;";
+        $result = $this->consulta($sql);
+        if ($this->count_filas($result) > 0) {
+            while ($row = $this->fetch_assoc($result)) {
+                $orden = new Orden();
+                $orden->setNumero($row['numero_orden']);
+                $orden->setHoraCreacion($row['horaCreacion']);
+                $orden->setHoraPreparacion($row['horaPreparacion']);
+                $orden->setHoraEntrega($row['horaEntrega']);
+                $orden->setPlato($this->listarPlatos($row['numero_orden']));
+                $orden->setBebida($this->listarBebidas($row['numero_orden']));
+                $orden->setTipo($row['nombre']);
+                $orden->setMesa($row['numeroMesa']);
+                $orden->setEstado($row['estado']);
+                $data[] = $orden;
+            }
+            $this->disconnect();
 
+            return $data;
+        } else {
+            return'';
+        }
+    }
     private function listarPlatos($id) {
         $sql = "SELECT * FROM ordenxplato NATURAL JOIN plato WHERE id_orden = " . $id;
         $result2 = $this->consulta($sql);
@@ -102,6 +126,20 @@ class OrdenDAO extends conexionDB {
         $this->conectar();
         $query = "UPDATE `orden` SET "
                 . "`horaPreparacion`='" . $orden->getHoraPreparacion() . "' WHERE `numero_orden` = " . $orden->getNumero();
+        $this->consulta($query);
+        $this->disconnect();
+    }
+     function confirmarOrden(Orden $orden) {
+        $this->conectar();
+        $query = "UPDATE `orden` SET "
+                . "`estado`= 2 WHERE `numero_orden` = " . $orden->getNumero();
+        $this->consulta($query);
+        $this->disconnect();
+    }
+    function actOrdenGarzon(Orden $orden) {
+        $this->conectar();
+        $query = "UPDATE `orden` SET "
+                . "`horaEntrega`='" . $orden->getHoraEntrega() . "' WHERE `numero_orden` = " . $orden->getNumero();
         $this->consulta($query);
         $this->disconnect();
     }

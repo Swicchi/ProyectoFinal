@@ -16,7 +16,7 @@
 
     <!-- MetisMenu CSS -->
     <link href="view/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
-
+    <link href="view/css/freelancer.min.css" rel="stylesheet">  
     <!-- Custom CSS -->
     <link href="view/dist/css/sb-admin-2.css" rel="stylesheet">
 
@@ -32,16 +32,25 @@
 
 </head>
 
-<body>
+<body background="img/back.jpg">
 
     <div class="container">
         <div class="row">
+            <br>
+            <br>
+            <div style=" text-align:center">
+            <div  style="filter:alpha(opacity=50); opacity:0.5; display:inline-block; " class="panel">
+            <h1  class="text-center">SISTEMA DE RESTAURANTES
+            </h1>
+            
+             </div>
+                <div>
             <div class="col-md-4 col-md-offset-4">
-                <div class="login-panel panel panel-default">
+                <div   class="login-panel panel panel-default">
                     <div class="panel-heading">
                         <h3 class="panel-title">Ingrese sus datos de usuario</h3>
                     </div>
-                    <div class="panel-body">
+                    <div  class="panel-body">
                         <form role="form" action="index.php?loginUser" method="POST">
                             <fieldset>
                                 <div class="form-group">

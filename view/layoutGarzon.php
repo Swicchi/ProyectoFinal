@@ -129,10 +129,12 @@
                                                 }
                                                     ?>
                                                 </td>
-                                                <?php if($value->getHoraPreparacion()==NULL){ ?>
-                                            <td><a class="btn btn-danger btn-lg"  href="index.php?id=<?php echo $value->getNumero(); ?>&action=preparado" onclick="return validar();">Actualizar</a></td>
-                                                <?php }else { ?>
-                                            <td><button class="btn btn-danger btn-lg"  disabled="true" href="index.php?id=<?php echo $value->getNumero(); ?>&action=preparado" onclick="return validar();">Preparado</button></td>
+                                                <?php if($value->getHoraEntrega()==NULL&&$value->getEstado()==2){ ?>
+                                            <td><a class="btn btn-danger btn-lg"  href="index.php?id=<?php echo $value->getNumero(); ?>&action=entregado" onclick="return validar();">Actualizar</a></td>
+                                                <?php }else if ($value->getHoraEntrega()==NULL&&$value->getEstado()==1) { ?>
+                                            <td><button class="btn btn-danger btn-lg" href="index.php?id=<?php echo $value->getNumero(); ?>&action=confirmar" onclick="return validar();">Confirmar</button></td>
+                                                <?php } else { ?>
+                                            <td><button class="btn btn-danger btn-lg"  disabled="true" href="index.php?id=<?php echo $value->getNumero(); ?>&action=preparado" onclick="return validar();">Entregado</button></td>
                                                 <?php } ?>
                                         </tr>
                                     <?php endforeach; ?>

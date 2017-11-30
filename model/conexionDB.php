@@ -10,6 +10,7 @@ class conexionDB {
     public function conectar() {
         if (!isset($this->conexion)) {
             $this->conexion = mysqli_connect("localhost","remferna","TbHpo54sQSSS","remferna");
+           
         }
     }
 
@@ -20,10 +21,9 @@ class conexionDB {
      */
     public function consulta($sql) {
         $resultado = mysqli_query($this->conexion,$sql);
-        if (!$resultado) {
-            echo 'MySQL Error: ' . mysqli_error($this->conexion);
-            exit;
-        }
+        //if (!$resultado) {
+            //return mysqli_error($this->conexion);
+        
         return $resultado;
     }
 
@@ -35,7 +35,10 @@ class conexionDB {
        
         return mysqli_num_rows($result);
     }
-
+    public function get_error()
+    {
+        return mysqli_error($this->conexion);
+    }
     /* METODO PARA CREAR ARRAY DESDE UNA CONSULTA
       INPUT: $result
       OUTPUT: array con los resultados de una consulta

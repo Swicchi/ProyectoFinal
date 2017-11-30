@@ -40,10 +40,10 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label>Seleccione Garzon a cargo</label>
+                                        <label>Seleccione Garzón a cargo</label>
                                         <select id="garzon" name="garzon" class="form-control">
                                             <?php foreach ($data as $garzon): ?>
-                                                <option value="<?php echo $garzon->getId(); ?>"><?php echo $garzon->getName(); ?></option>
+                                                <option value="<?php echo $garzon->getId(); ?>"><?php echo $garzon->getNombre(); ?></option>
                                             <?php endforeach; ?> 
                                         </select>
                                     </div>

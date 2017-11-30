@@ -45,11 +45,11 @@ function validar(){
                                     <?php foreach ($data as  $value):?>
                                      <tr class="odd gradeA">
                                         <td><?php echo  $value->getNumero();?></td>
-                                        <td><?php echo  $value->getCantidad();?></td>
+                                        <td><?php echo  $value->getAsientos();?></td>
                                         <td><?php echo  $value->getCodigo();?></td>
-                                        <td><?php echo  $value->getGarzon()->getName();?></td>
-                                       <td><a class="btn btn-danger btn-lg"  href="index.php?id=<?php echo  $value->getId();?>&action=eliminarBebida" onclick="return validar();">Eliminar</a></td>
-                                       <td><a class="btn btn-success btn-lg"  href="index.php?id=<?php echo  $value->getId();?>&action=editarBebida">Editar</a></td>
+                                        <td><?php echo  $value->getGarzon()->getNombre()." ". $value->getGarzon()->getApellidoP()." ". $value->getGarzon()->getApellidoM();?></td>
+                                       <td><a class="btn btn-danger btn-lg"  href="index.php?id=<?php echo  $value->getId();?>&action=eliminarMesa" onclick="return validar();">Eliminar</a></td>
+                                       <td><a class="btn btn-success btn-lg"  href="index.php?id=<?php echo  $value->getId();?>&action=editarMesa">Editar</a></td>
                                     </tr>
                                       <?php endforeach;?>
                                     </tbody>

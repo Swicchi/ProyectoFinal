@@ -2,7 +2,7 @@
 <script>
 function validar(){
 	     //Ingresamos un mensaje a mostrar
-        var mensaje = confirm('¿Desea eliminar esta bebida?');
+        var mensaje = confirm('¿Desea eliminar este garzon?');
         //Detectamos si el usuario acepto el mensaje
         if (mensaje) {
             return true;
@@ -15,7 +15,7 @@ function validar(){
 </script>
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Gestion de Bebidas</h1>
+                    <h1 class="page-header">Gestion de Garzones</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -24,7 +24,7 @@ function validar(){
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                           Listar Bebidas
+                           Listar Garzones
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -32,9 +32,14 @@ function validar(){
                             <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
-                                        <th>Nombre Bebida</th>
-                                        <th>Precio Bebida</th>
-                                        <th>Detalle Bebida</th>
+                                        <th>Rut</th>
+                                        <th>Nombre</th>
+                                        <th>Apellido Paterno</th>
+                                        <th>Apellido Materno</th>
+                                        <th>Telefono</th>
+                                        <th>Direccion</th>
+                                        <th>Sueldo</th>
+                                        <th>Usuario</th>
                                         <th>Acción Eliminar</th>
                                         <th>Acción Editar</th>
                                     </tr>
@@ -42,12 +47,17 @@ function validar(){
                                 <tbody>
                                   
                                     <?php foreach ($data as  $value):?>
-                                     <tr class="odd gradeA">
-                                        <td><?php echo  $value->getName();?></td>
-                                        <td><?php echo  $value->getPrecio();?></td>
-                                        <td><?php echo  $value->getDetalle();?></td>
-                                       <td><a class="btn btn-danger btn-lg"  href="index.php?id=<?php echo  $value->getId();?>&action=eliminarBebida" onclick="return validar();">Eliminar</a></td>
-                                       <td><a class="btn btn-success btn-lg"  href="index.php?id=<?php echo  $value->getId();?>&action=editarBebida">Editar</a></td>
+                                     <tr class="odd gradeA">                                         
+                                        <td><?php echo  $value->getRut();?></td>
+                                        <td><?php echo  $value->getNombre();?></td>
+                                        <td><?php echo  $value->getApellidoP();?></td>
+                                        <td><?php echo  $value->getApellidoM();?></td>
+                                        <td><?php echo  $value->getTelefono();?></td>
+                                        <td><?php echo  $value->getDireccion();?></td>
+                                        <td><?php echo  $value->getSueldo();?></td>
+                                        <td><?php echo  $value->getUser()->getName();?></td>
+                                       <td><a class="btn btn-danger btn-lg"  href="index.php?id=<?php echo  $value->getId();?>&action=eliminarGarzon" onclick="return validar();">Eliminar</a></td>
+                                       <td><a class="btn btn-success btn-lg"  href="index.php?id=<?php echo  $value->getId();?>&action=editarGarzon">Editar</a></td>
                                     </tr>
                                       <?php endforeach;?>
                                     </tbody>
