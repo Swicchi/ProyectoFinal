@@ -1,4 +1,4 @@
-    <script>
+﻿    <script>
  function checkRut(rut) {
     // Despejar Puntos
     var valor = rut.value.replace('.','');
@@ -50,7 +50,7 @@
 <html>
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Gestion de Garzones</h1>
+            <h1 class="page-header">Gestión de Garzones</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -69,50 +69,50 @@
                                     <div class="control-group">
                                         <div class="form-group floating-label-form-group controls">
                                             <label>Rut </label>
-                                            <input class="form-control" id="rut" name="rut" oninput=" return checkRut(this)" type="text" placeholder="Ingrese rut de garzon" required >
+                                            <input class="form-control" id="rut" name="rut" oninput=" return checkRut(this)" type="text" placeholder="Ingrese rut de garzón" required >
                                             <p class="help-block text-danger"></p>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <div class="form-group floating-label-form-group controls">
                                             <label>Nombre </label>
-                                            <input class="form-control" id="nombre" name="nombre" type="text" placeholder="Ingrese nombre de garzon" required >
+                                            <input class="form-control" id="nombre" name="nombre" type="text" placeholder="Ingrese nombre de garzón" required >
                                             <p class="help-block text-danger"></p>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <div class="form-group floating-label-form-group controls">
                                             <label>Apellido Paterno </label>
-                                            <input class="form-control" id="apellidoPaterno" name="apellidoPaterno" type="text" placeholder="Ingrese apellido paterno del garzon" required >
+                                            <input class="form-control" id="apellidoPaterno" name="apellidoPaterno" type="text" placeholder="Ingrese apellido paterno del garzón" required >
                                             <p class="help-block text-danger"></p>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <div class="form-group floating-label-form-group controls">
                                             <label>Apellido Materno </label>
-                                            <input class="form-control" id="apellidoMaterno" name="apellidoMaterno" type="text" placeholder="Ingrese apellido materno del garzon" required >
+                                            <input class="form-control" id="apellidoMaterno" name="apellidoMaterno" type="text" placeholder="Ingrese apellido materno del garzón" required >
                                             <p class="help-block text-danger"></p>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <div class="form-group floating-label-form-group controls">
                                             <label>Sueldo</label>
-                                            <input class="form-control" id="sueldo" name="sueldo" type="number" placeholder="Ingrese sueldo del garzon" required >
+                                            <input class="form-control" id="sueldo" name="sueldo" type="number" placeholder="Ingrese sueldo del garzón" required >
                                             <p class="help-block text-danger"></p>
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <div class="form-group floating-label-form-group controls">
-                                            <label>Direccion</label>
-                                            <input class="form-control" id="direccion" name="direccion" type="text" placeholder="Ingrese direccion del garzon" required >
+                                            <label>Dirección</label>
+                                            <input class="form-control" id="direccion" name="direccion" type="text" placeholder="Ingrese dirección del garzón" required >
                                             <p class="help-block text-danger"></p>
                                         </div>
                                     </div>
                                     
                                     <div class="control-group">
                                         <div class="form-group floating-label-form-group controls">
-                                            <label>Telefono</label>
-                                            <input class="form-control" id="telefono" name="telefono" type="number" placeholder="Ingrese telefono del garzon" required >
+                                            <label>Teléfono</label>
+                                            <input class="form-control" id="telefono" name="telefono" type="number" placeholder="Ingrese teléfono del garzón" required >
                                             <p class="help-block text-danger"></p>
                                         </div>
                                     </div>

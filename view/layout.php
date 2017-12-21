@@ -1,15 +1,14 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Administracion del sistema de restaurante</title>
+    <title>Administración del sistema de restaurante</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="view/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -40,14 +39,13 @@
 </head>
 
 <body>
-
     <div id="wrapper">
 
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
               
-                <a class="navbar-brand" href="#">Administracion del Sistema</a>
+                <a class="navbar-brand" href="#">Administración del Sistema</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -56,7 +54,7 @@
                 <!-- /.dropdown -->
                 <li class="dropdown">
                     
-                    <a href="index.php" class="btn"><i class="fa fa-sign-out fa-fw"></i> Cerrar Sesión (<?php echo $_SESSION['username']?>)</a>
+                    <a href="index.php" class="btn"><i class="fa fa-sign-out fa-fw"></i> Cerrar Sesión </a>
                     <!-- /.dropdown-user -->
                 </li>
                 <!-- /.dropdown -->
@@ -69,55 +67,55 @@
                           
                        
                         <li>
-                            <a href="#"><i class="fa fa-user fa-fw"></i> Gestion de Usuarios<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-user fa-fw"></i> Gestión de Usuarios<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="index.php?action=agregarUsuario">Agregar Usuario</a>
                                 </li>
                                 <li>
-                                    <a href="index.php?action=listarUsuario">Listar Usuarios</a>
+                                    <a href="index.php?action=listarUsuario">Administrar Usuarios</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
                        
-                            <a href="#"><i class="fa fa-cutlery fa-fw"></i> Gestion de Menus<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-cutlery fa-fw"></i> Gestión de Menús<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">Gestion de Platos de comida <span class="fa arrow"></span></a>
+                                    <a href="#">Gestión de Platos de comida <span class="fa arrow"></span></a>
                                     <ul class="nav nav-third-level">
                                         <li>
                                             <a href="index.php?action=agregarPlato">Agregar Plato de comida</a>
                                         </li>
                                         <li>
-                                            <a href="index.php?action=listarPlato">Listar Platos de comida</a>
+                                            <a href="index.php?action=listarPlato">Administrar Platos de comida</a>
                                         </li>
                                        
                                     </ul>
                                     <!-- /.nav-third-level -->
                                 </li>
                                 <li>
-                                    <a href="#">Gestion de Bebidas <span class="fa arrow"></span></a>
+                                    <a href="#">Gestión de Bebidas <span class="fa arrow"></span></a>
                                     <ul class="nav nav-third-level">
                                         <li>
                                             <a href="index.php?action=agregarBebida">Agregar Bebida</a>
                                         </li>
                                         <li>
-                                            <a href="index.php?action=listarBebida">Listar Bebidas</a>
+                                            <a href="index.php?action=listarBebida">Administrar Bebidas</a>
                                         </li>
                                        
                                     </ul>
                                     <!-- /.nav-third-level -->
                                 </li>
                                 <li>
-                                    <a href="#">Gestion de Alimentos <span class="fa arrow"></span></a>
+                                    <a href="#">Gestión de Alimentos <span class="fa arrow"></span></a>
                                     <ul class="nav nav-third-level">
                                         <li>
                                             <a href="index.php?action=agregarAlimento">Agregar Alimento</a>
                                         </li>
                                         <li>
-                                            <a href="index.php?action=listarAlimento">Listar Alimentos</a>
+                                            <a href="index.php?action=listarAlimento">Administrar Alimentos</a>
                                         </li>
                                       
                                     </ul>
@@ -127,25 +125,25 @@
                             <!-- /.nav-second-level -->
                         </li>
                      <li>
-                            <a href="#"><i class="fa fa-users fa-fw"></i> Gestion de Garzones<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-users fa-fw"></i> Gestión de Garzones<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="index.php?action=agregarGarzon">Agregar Garzon</a>
+                                    <a href="index.php?action=agregarGarzon">Agregar Garzón</a>
                                 </li>
                                 <li>
-                                    <a href="index.php?action=listarGarzon">Listar Garzones</a>
+                                    <a href="index.php?action=listarGarzon">Administrar Garzones</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-table fa-fw"></i> Gestion de Mesas<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-table fa-fw"></i> Gestión de Mesas<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="index.php?action=agregarMesa">Agregar Mesa</a>
                                 </li>
                                 <li>
-                                    <a href="index.php?action=listarMesa">Listar Mesas</a>
+                                    <a href="index.php?action=listarMesa">Administrar Mesas</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

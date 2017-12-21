@@ -9,20 +9,26 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Administracion del sistema de restaurante</title>
+    <title>Administración del sistema de restaurante</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="view/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+ <link href="view/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+   <!-- DataTables CSS -->
+    <link href="view/vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
 
+    <!-- DataTables Responsive CSS -->
+    <link href="view/vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
     <!-- MetisMenu CSS -->
     <link href="view/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
-    <link href="view/css/freelancer.min.css" rel="stylesheet">  
+
     <!-- Custom CSS -->
     <link href="view/dist/css/sb-admin-2.css" rel="stylesheet">
 
+    <!-- Morris Charts CSS 
+    <link href="view/vendor/morrisjs/morris.css" rel="stylesheet">
+-->
     <!-- Custom Fonts -->
     <link href="view/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

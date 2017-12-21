@@ -1,8 +1,8 @@
-
+﻿
 <html>
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Gestion de Mesas</h1>
+        <h1 class="page-header">Gestión de Mesas</h1>
     </div>
     <!-- /.col-lg-12 -->
 </div>
@@ -20,8 +20,8 @@
                             <div class="center-block">
                             <div class="control-group">
                                 <div class="form-group floating-label-form-group controls">
-                                    <label>Numero Mesa</label>
-                                    <input class="form-control" id="num" name="num" type="number" value="<?php echo  $mesa->getNumero(); ?>" placeholder="Ingrese nombre de mesa" required >
+                                    <label>Número Mesa</label>
+                                    <input class="form-control" id="num" name="num" type="number" value="<?php echo  $mesa->getNumero(); ?>" placeholder="Ingrese número de mesa" required >
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>

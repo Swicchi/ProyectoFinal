@@ -69,7 +69,7 @@ class MesaController extends CoreController {
         $mesaDao = new MesaDAO();
         $result= $mesaDao->addMesa($mesa);
         if(!$result){
-            echo '<script language="javascript">alert("Mesa No Agregada (Número de mesa o codigo duplicado)");</script>';
+            echo '<script language="javascript">alert("Mesa No Agregada (Número de mesa o código duplicado)");</script>';
             $this->agregarMesa();
         }else{
         echo '<script language="javascript">alert("Mesa Agregada Correctamente");</script>';
@@ -97,7 +97,7 @@ class MesaController extends CoreController {
         $result = $mesaDao->editMesa($mesa);
         if(!$result){
             
-             echo '<script language="javascript">alert("Mesa No Editada (Número de mesa o codigo duplicado)");</script>';
+             echo '<script language="javascript">alert("Mesa No Editada (Número de mesa o código duplicado)");</script>';
              
         }
         

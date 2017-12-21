@@ -8,10 +8,11 @@
 
 require_once 'controller/CoreController.php';
 require_once 'model/AlimentoModel/AlimentoDAO.php';
+
 class AlimentoController extends CoreController {
 
     function agregarAlimento() {
-      
+
         $pagina = $this->load_template();
 
         //Inicio carga en buffer
@@ -104,6 +105,37 @@ class AlimentoController extends CoreController {
         $pagina = $this->replace_content('/\#CONTENIDO\#/ms', $content, $pagina);
         //Se muestra la pagina
         $this->view_page($pagina);
+    }
+
+    function listarAlimentosC() {
+        $pagina = $this->load_template();
+
+        //Inicio carga en buffer
+        ob_start();
+        $alimento = new AlimentoDAO();
+        $data = $alimento->listarAlimentos();
+        include 'view/AlimentoView/listarCocina.php';
+        $content = ob_get_clean();
+        //Termino carga de bufer, se almacena todo en variable $content
+        //Se reemplaza la bandera del template por el contenido que deseo mostrar
+        $pagina = $this->replace_content('/\#CONTENIDO\#/ms', $content, $pagina);
+        //Se muestra la pagina
+        $this->view_page($pagina);
+    }
+
+    function estadoAlimento() {
+
+        $alimento = new Alimento();
+        $alimento->setId($_GET['id']);
+
+        $alimentoDao = new AlimentoDAO();
+        $alimentoDao->estadoAlimento($alimento);
+        $rol = unserialize($_SESSION['userrol']);
+        if ($rol == 'Cocinero') {
+            $this->listarAlimentosC();
+        } else
+            $this->listarAlimentos();
+        //Se muestra la pagina 
     }
 
 }

@@ -191,5 +191,34 @@ class PlatoController extends CoreController {
         $platoDAO->deleteIngredientexPlato($plato);
         $this->listarPlatos();
     }
+    function listarPlatoC() {
+        $pagina = $this->load_template();
+
+        //Inicio carga en buffer
+        ob_start();
+        $platoDAO = new PlatoDAO();
+        $data = $platoDAO->listarPlatos();
+        include 'view/PlatoView/listarCocina.php';
+        $content = ob_get_clean();
+        //Termino carga de bufer, se almacena todo en variable $content
+        //Se reemplaza la bandera del template por el contenido que deseo mostrar
+        $pagina = $this->replace_content('/\#CONTENIDO\#/ms', $content, $pagina);
+        //Se muestra la pagina
+        $this->view_page($pagina);
+    }
+     function estadoPlato() {
+
+        $plato = new Plato();
+        $plato->setId($_GET['id']);
+
+        $platoDao = new PlatoDAO();
+        $platoDao->estadoPlato($plato);
+        $rol = unserialize($_SESSION['userrol']);
+        if ($rol == 'Cocinero') {
+            $this->listarPlatoC();
+        } else
+            $this->listarPlatos();
+        //Se muestra la pagina 
+    }
 }
 ?>

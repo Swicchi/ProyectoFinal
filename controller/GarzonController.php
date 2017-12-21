@@ -67,7 +67,7 @@ class GarzonController extends CoreController {
         $garzonDao = new GarzonDAO();
 
         $garzonDao->addGarzon($garzon);
-        echo '<script language="javascript">alert("Garzon Agregado Correctamente");</script>';
+        echo '<script language="javascript">alert("Garzón Agregado Correctamente");</script>';
         $this->listarGarzones();
 
 
@@ -105,9 +105,9 @@ class GarzonController extends CoreController {
         $garzon->setId($id);
         $garzonDao = new GarzonDAO();
         if ($garzonDao->deleteGarzon($garzon)) {
-            echo '<script language="javascript">alert("Garzon Eliminado");</script>';
+            echo '<script language="javascript">alert("Garzón Eliminado");</script>';
         } else {
-            echo '<script language="javascript">alert("Garzon NO Eliminado");</script>';
+            echo '<script language="javascript">alert("Garzón NO Eliminado");</script>';
         }
         $this->listarGarzones();
     }

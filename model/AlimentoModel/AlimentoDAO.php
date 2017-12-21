@@ -23,6 +23,7 @@ class AlimentoDAO extends conexionDB {
                 $alimento = new Alimento();
                 $alimento->setId($row['id_alimento']);
                 $alimento->setName($row['nombre']);
+                $alimento->setEstado($row['disponibilidad']);
                 $data[] = $alimento;
             }
             $this->disconnect();
@@ -48,6 +49,7 @@ class AlimentoDAO extends conexionDB {
         $alimento = new Alimento();
         $alimento->setId($tsArray['id_alimento']);
         $alimento->setName($tsArray['nombre']);
+        $alimento->setEstado($tsArray['disponibilidad']);
         return $alimento;
     }
 
@@ -56,6 +58,13 @@ class AlimentoDAO extends conexionDB {
         $this->conectar();
         $query = "UPDATE `alimento` SET "
                 . "`nombre`='" . $alimento->getName() . "' WHERE `id_alimento` = " . $alimento->getId();
+        $this->consulta($query);
+        $this->disconnect();
+    }
+    function estadoAlimento(Alimento $alimento) {
+        $this->conectar();
+        $query = "UPDATE `alimento` SET "
+                . "`disponibilidad`=alimento.disponibilidad*-1 WHERE `id_alimento` = " . $alimento->getId();
         $this->consulta($query);
         $this->disconnect();
     }

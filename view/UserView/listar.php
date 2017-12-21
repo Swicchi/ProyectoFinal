@@ -2,7 +2,7 @@
 <script>
 function validar(){
 	     //Ingresamos un mensaje a mostrar
-        var mensaje = confirm('¿Desea eliminar esta persona?');
+        var mensaje = confirm('¿Desea eliminar este usuario?');
         //Detectamos si el usuario acepto el mensaje
         if (mensaje) {
             return true;
@@ -15,7 +15,7 @@ function validar(){
 </script>
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Gestion de Usuarios</h1>
+                    <h1 class="page-header">Gestión de Usuarios</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>

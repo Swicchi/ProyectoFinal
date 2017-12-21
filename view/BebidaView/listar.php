@@ -15,7 +15,7 @@ function validar(){
 </script>
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Gestion de Bebidas</h1>
+                    <h1 class="page-header">Gestión de Bebidas</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -44,7 +44,7 @@ function validar(){
                                     <?php foreach ($data as  $value):?>
                                      <tr class="odd gradeA">
                                         <td><?php echo  $value->getName();?></td>
-                                        <td><?php echo  $value->getPrecio();?></td>
+                                        <td><?php echo  '$ '.$value->getPrecio();?></td>
                                         <td><?php echo  $value->getDetalle();?></td>
                                        <td><a class="btn btn-danger btn-lg"  href="index.php?id=<?php echo  $value->getId();?>&action=eliminarBebida" onclick="return validar();">Eliminar</a></td>
                                        <td><a class="btn btn-success btn-lg"  href="index.php?id=<?php echo  $value->getId();?>&action=editarBebida">Editar</a></td>

@@ -15,6 +15,7 @@ class Plato  {
     private $image;
     private $noingredientes;
     private $cantidad;
+    private $estado;
     function getId() {
         return $this->id;
     }
@@ -46,7 +47,13 @@ class Plato  {
     function getCantidad() {
         return $this->cantidad;
     }
+function getEstado() {
+        return $this->estado;
+    }
 
+    function setEstado($estado) {
+        $this->estado = $estado;
+    }
     function setId($id) {
         $this->id = $id;
     }

@@ -15,10 +15,12 @@ class CoreController {
         $rol = unserialize($_SESSION['userrol']);   
         if ($rol == 'Administrador') {
             $pagina = $this->load_page('view/layout.php');
-        } elseif ($rol == 'Gerente') {
+        } else if ($rol == 'Gerente') {
             $pagina = $this->load_page('view/layoutGerente.php');
-        } else {
+        } else if ($rol == 'Cocinero') {
             $pagina = $this->load_page('view/layoutCocinero.php');
+        }else {
+             $pagina = $this->load_page('view/layoutGarzon.php');
         }
       
         return $pagina;

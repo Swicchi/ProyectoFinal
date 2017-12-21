@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
     <head>
@@ -9,7 +9,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Administracion del sistema de restaurante</title>
+        <title>Administración del sistema de restaurante</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="view/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -78,10 +78,10 @@
                             <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
-                                        <th>Numero Orden</th>
-                                        <th>Hora Creacion</th>
+                                        <th>Número Orden</th>
+                                        <th>Hora Creación</th>
                                         <th>Tipo Orden</th>
-                                        <th>Numero Mesa</th>
+                                        <th>Número Mesa</th>
                                         <th>Platos</th>
                                         <th>Bebidas</th>
                                         <th>Monto Total</th>

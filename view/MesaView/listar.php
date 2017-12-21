@@ -1,4 +1,4 @@
-
+﻿
 <script>
 function validar(){
 	     //Ingresamos un mensaje a mostrar
@@ -15,7 +15,7 @@ function validar(){
 </script>
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Gestion de Mesas</h1>
+                    <h1 class="page-header">Gestión de Mesas</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -32,10 +32,10 @@ function validar(){
                             <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
-                                        <th>Numero Mesa</th>
+                                        <th>Número Mesa</th>
                                         <th>Cantidad Asientos</th>
-                                        <th>Codigo Mesa</th>
-                                        <th>Garzon a Cargo</th>
+                                        <th>Código Mesa</th>
+                                        <th>Garzón a Cargo</th>
                                         <th>Acción Eliminar</th>
                                         <th>Acción Editar</th>
                                     </tr>

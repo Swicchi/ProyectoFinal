@@ -2,7 +2,7 @@
 <html>
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Gestion de Bebidas</h1>
+        <h1 class="page-header">Gestión de Bebidas</h1>
     </div>
     <!-- /.col-lg-12 -->
 </div>

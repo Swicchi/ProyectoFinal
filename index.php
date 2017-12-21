@@ -172,6 +172,17 @@ if (count($_POST) > 0) {
         //se instancia al controlador
         $mvc = new AlimentoController();
         $mvc->listarAlimentos();
+    } else if ($accion == 'listarAlimentosC') {
+        require 'controller/AlimentoController.php';
+        //se instancia al controlador
+        $mvc = new AlimentoController();
+        $mvc->listarAlimentosC();
+    }
+    else if ($accion == 'estadoAlimento') {
+        require 'controller/AlimentoController.php';
+        //se instancia al controlador
+        $mvc = new AlimentoController();
+        $mvc->estadoAlimento();
     }
 
     //Bebidas
@@ -270,7 +281,12 @@ if (count($_POST) > 0) {
         //se instancia al controlador
         $mvc = new PlatoController();
         $mvc->listarPlatos();
-    } else if ($accion == 'ingredientePlato') {
+    } else if ($accion == 'listarPlatosC') {
+        require 'controller/PlatoController.php';
+        //se instancia al controlador
+        $mvc = new PlatoController();
+        $mvc->listarPlatoC();
+    }else if ($accion == 'ingredientePlato') {
         require 'controller/PlatoController.php';
         //se instancia al controlador
         $mvc = new PlatoController();
@@ -285,11 +301,25 @@ if (count($_POST) > 0) {
         //se instancia al controlador
         $mvc = new PlatoController();
         $mvc->eliminarIngrediente();
-    } else  if ($accion == 'listarOrdenes') {
+    } else if ($accion == 'estadoPlato') {
+        require 'controller/PlatoController.php';
+        //se instancia al controlador
+        $mvc = new PlatoController();
+        $mvc->estadoPlato();
+    }
+    
+    //ordenes
+    else  if ($accion == 'listarOrdenes') {
         require 'controller/OrdenController.php';
         //se instancia al controlador
         $mvc = new OrdenController();
         $mvc->listarOrdenesGerente();
+    } else  if ($accion == 'listarOrdenesC') {
+        require 'controller/OrdenController.php';
+        //se instancia al controlador
+        $mvc = new OrdenController();
+        $mvc->listarOrdenes();
     }
+    
 }
 ?>

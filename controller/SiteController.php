@@ -14,7 +14,7 @@ class SiteController extends CoreController {
     function principal($bandera = false) {
         session_destroy();
         if ($bandera) {
-            echo '<script language="javascript">alert("Inicie Sesion");</script>';
+            echo '<script language="javascript">alert("Inicie Sesión");</script>';
         }
         $pagina = $this->load_page('view/login.php');
         $this->view_page($pagina);
@@ -43,11 +43,10 @@ class SiteController extends CoreController {
         
         if ($user2->getRol()->getName() == 'Cocinero' ) {
             
-            $orden = new OrdenDAO();
-            $data = $orden->listarOrdenes();
-            include 'view/layoutCocinero.php';
-            $pagina = ob_get_clean();
-            $this->view_page($pagina);
+            require 'controller/OrdenController.php';
+        //se instancia al controlador
+            $mvc = new OrdenController();
+            $mvc->listarOrdenes();
         } else if ( $user2->getRol()->getName() == 'Garzon') {
             
             $orden = new OrdenDAO();

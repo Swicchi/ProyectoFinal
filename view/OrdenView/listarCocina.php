@@ -1,4 +1,5 @@
-<div class="panel panel-default">
+ <div >
+                <div class="panel panel-default">
                     <div class="panel-heading">
                         Listar Ordenes
                     </div>
@@ -9,24 +10,20 @@
                                 <thead>
                                     <tr>
                                         <th>Número Orden</th>
-                                        <th>Hora Creación</th>
-                                        <th>Hora Preparación</th>
-                                        <th>Hora Entrega</th>
+                                        <th>Hora Creacion</th>
                                         <th>Tipo Orden</th>
                                         <th>Número Mesa</th>
                                         <th>Platos</th>
                                         <th>Bebidas</th>
-                                        <th>Monto Total</th>
+                                        <th>Acción Actualizar</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     
-                                    <?php foreach ($data as $value): $monto=0; ?>
+                                    <?php foreach ($data as $value):  ?>
                                         <tr class="odd gradeA">
                                             <td><?php echo $value->getNumero(); ?></td>
                                             <td><?php echo $value->getHoraCreacion(); ?></td>
-                                            <td><?php echo $value->getHoraPreparacion(); ?></td>
-                                            <td><?php echo $value->getHoraEntrega(); ?></td>
                                             <td><?php echo $value->getTipo(); ?></td>
                                             <td><?php echo $value->getMesa(); ?></td>
                                             <td><?php
@@ -34,7 +31,6 @@
                                                     foreach ($value->getPlato() as $ing):
                                                         if ($ing != null) {
                                                             echo $ing->getCantidad().' x '.$ing->getNombre();
-                                                            $monto=$monto+($ing->getCantidad()*$ing->getPrecio());
                                                             echo ' <br>  ';
                                                         } else {
                                                             
@@ -52,7 +48,6 @@
                                                     foreach ($value->getBebida() as $ing):
                                                         if ($ing != null) {
                                                             echo $ing->getCantidad().' x '.$ing->getName().' '.$ing->getDetalle();
-                                                            $monto=$monto+($ing->getCantidad()*$ing->getPrecio());
                                                             echo ' <br> ';
                                                         } else {
                                                             
@@ -64,9 +59,12 @@
                                                     echo 'No Hay Bebidas';
                                                 }
                                                     ?>
-                                                </td>  
-                                            <td><?php echo "$ ".$monto?></td>
-                                                 
+                                                </td>
+                                                <?php if($value->getHoraPreparacion()==NULL){ ?>
+                                            <td><a class="btn btn-danger btn-lg"  href="index.php?id=<?php echo $value->getNumero(); ?>&action=preparado" onclick="return validar();">Actualizar</a></td>
+                                                <?php }else { ?>
+                                            <td><button class="btn btn-danger btn-lg"  disabled="true" href="index.php?id=<?php echo $value->getNumero(); ?>&action=preparado" onclick="return validar();">Preparado</button></td>
+                                                <?php } ?>
                                         </tr>
                                     <?php endforeach; ?>
 
@@ -81,4 +79,4 @@
 
                 </div>
                 <!-- /.col-lg-12 -->
-         
+            </div>

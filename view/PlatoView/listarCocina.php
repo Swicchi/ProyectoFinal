@@ -1,18 +1,6 @@
 ﻿
 <script>
-    function validar() {
-        //Ingresamos un mensaje a mostrar
-        var mensaje = confirm('¿Desea eliminar este plato?');
-        //Detectamos si el usuario acepto el mensaje
-        if (mensaje) {
-            return true;
-        }
-        //Detectamos si el usuario denegó el mensaje
-        else {
-            return false;
-        }
-    }
-    function validar2(){
+   function validar2(){
 	     //Ingresamos un mensaje a mostrar
         var mensaje = confirm('¿Desea cambiar el estado de este plato?');
         //Detectamos si el usuario acepto el mensaje
@@ -49,9 +37,6 @@
                                 <th>Tipo Plato</th>
                                           <th>Estado</th>
                                 <th>Ingredientes</th>
-                                <th>Administrar Ingredientes</th>
-                                <th>Acción Eliminar</th>
-                                <th>Acción Editar</th>
                                         <th>Acción Actualizar</th>
                                 <th>Imagen</th>
                             </tr>
@@ -80,12 +65,8 @@
                                                 ?>
                                              <?php }
                             ?></td>
-                                    <td><div class="pull-right"><a class="btn btn-success btn-lg"  href="index.php?id=<?php echo $value->getId(); ?>&action=ingredientePlato" >Administrar Ingredientes</a>    
-                                            </div></td>
-                                    <td><a class="btn btn-danger btn-lg"  href="index.php?id=<?php echo $value->getId(); ?>&action=eliminarPlato" onclick="return validar();">Eliminar</a></td>
-                                    <td><a class="btn btn-success btn-lg"  href="index.php?id=<?php echo $value->getId(); ?>&action=editarPlato">Editar</a></td>
-                                       <td><a class="btn btn-danger btn-lg"  href="index.php?id=<?php echo  $value->getId();?>&action=estadoPlato" onclick="return validar2();">Cambiar estado</a></td>
-                                
+                                   <td><a class="btn btn-danger btn-lg"  href="index.php?id=<?php echo  $value->getId();?>&action=estadoPlato" onclick="return validar2();">Cambiar estado</a></td>
+                                       
  <td><button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal<?php echo $value->getId(); ?>">
                                     Ver Imagen
                                     </button></td>

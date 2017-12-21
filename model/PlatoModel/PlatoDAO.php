@@ -15,13 +15,14 @@ class PlatoDAO extends conexionDB {
 
     function listarPlatos() {
         $this->conectar();
-        $sql = "SELECT p.id_plato, p.nombre, p.precio, p.srcIMG, t.nombre_tipo FROM plato AS p NATURAL JOIN tipoplato AS t ORDER BY t.nombre_tipo ASC;";
+        $sql = "SELECT p.id_plato,p.disponibilidad, p.nombre, p.precio, p.srcIMG, t.nombre_tipo FROM plato AS p NATURAL JOIN tipoplato AS t ORDER BY t.nombre_tipo ASC;";
         $result = $this->consulta($sql);
         if ($this->count_filas($result) > 0) {
             while ($row = $this->fetch_assoc($result)) {
                 $plato = new Plato();
                 $plato->setId($row['id_plato']);
                 $plato->setNombre($row['nombre']);
+                $plato->setEstado($row['disponibilidad']);
                 $plato->setPrecio($row['precio']);
                 $plato->setImage($row['srcIMG']);
                 $tipoplato = new TipoPlato();
@@ -69,6 +70,7 @@ class PlatoDAO extends conexionDB {
         $plato->setNombre($tsArray['nombre']);
         $plato->setPrecio($tsArray['precio']);
         $plato->setImage($tsArray['srcIMG']);
+        $plato->setEstado($tsArray['disponibilidad']);
                 
         $tipoplato = new TipoPlato();
         $tipoplato->setId($tsArray['id_tipoplato']);
@@ -130,6 +132,13 @@ class PlatoDAO extends conexionDB {
         $consulta = $this->consulta("DELETE FROM `alimentoxplato` WHERE id_plato = " . $plato->getId() . " AND id_alimento = " . $plato->getIngredientes());
         $this->disconnect();
         return $consulta;
+    }
+    function estadoPlato(Plato $plato) {
+        $this->conectar();
+        $query = "UPDATE `plato` SET "
+                . "`disponibilidad`=plato.disponibilidad*-1 WHERE `id_plato` = " . $plato->getId();
+        $this->consulta($query);
+        $this->disconnect();
     }
 
 }
