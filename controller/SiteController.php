@@ -50,7 +50,7 @@ class SiteController extends CoreController {
         } else if ( $user2->getRol()->getName() == 'Garzon') {
             
             $orden = new OrdenDAO();
-            $data = $orden->listarOrdenesGarzon();
+            $data = $orden->listarOrdenesGarzon($user2->getName());
             include 'view/layoutGarzon.php';
             $pagina = ob_get_clean();
             $this->view_page($pagina);

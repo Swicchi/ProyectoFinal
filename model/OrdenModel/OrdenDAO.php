@@ -36,9 +36,9 @@ class OrdenDAO extends conexionDB {
             return'';
         }
     }
-function listarOrdenesGarzon() {
+function listarOrdenesGarzon($name) {
         $this->conectar();
-        $sql = "SELECT * FROM orden NATURAL JOIN tipoorden NATURAL JOIN mesa WHERE estado = 1 OR horaPreparacion IS NOT NULL  ;";
+        $sql = "SELECT * FROM orden NATURAL JOIN tipoorden NATURAL JOIN mesa  JOIN garzon ON mesa.id_garzon = garzon.id_garzon JOIN user ON user.id_user = garzon.id_user WHERE (estado = 1 OR horaPreparacion IS NOT NULL) AND user =  '".$name."'  ;";
         $result = $this->consulta($sql);
         if ($this->count_filas($result) > 0) {
             while ($row = $this->fetch_assoc($result)) {
@@ -55,7 +55,6 @@ function listarOrdenesGarzon() {
                 $data[] = $orden;
             }
             $this->disconnect();
-
             return $data;
         } else {
             return'';

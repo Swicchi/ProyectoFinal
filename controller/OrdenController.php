@@ -134,11 +134,12 @@ class OrdenController extends CoreController {
     }
 
    
-     function listarOrdenesGarzon() {
+     function listarOrdenesGarzon($name) {
         //Inicio carga en buffer
         ob_start();
+        
         $orden = new OrdenDAO();
-        $data = $orden->listarOrdenesGarzon();
+        $data = $orden->listarOrdenesGarzon($name);
         include 'view/layoutGarzon.php';
         $pagina = ob_get_clean();
         $this->view_page($pagina);
