@@ -44,6 +44,7 @@ class GarzonDAO extends conexionDB {
              $user->setId($tsArray['id_user']);
              $user->setName($tsArray['user']);
              $user->setUserPass($tsArray['password']);
+             $this->disconnect();
         return $user;
     }
 

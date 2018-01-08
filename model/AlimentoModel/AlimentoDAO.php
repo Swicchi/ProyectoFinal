@@ -50,6 +50,7 @@ class AlimentoDAO extends conexionDB {
         $alimento->setId($tsArray['id_alimento']);
         $alimento->setName($tsArray['nombre']);
         $alimento->setEstado($tsArray['disponibilidad']);
+        $this->disconnect();
         return $alimento;
     }
 

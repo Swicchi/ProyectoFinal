@@ -41,6 +41,9 @@ class GarzonController extends CoreController {
         ob_start();
         $garzonDAO = new GarzonDAO();
         $garzon = $garzonDAO->getGarzon($garzon);
+        
+        $user = new UserDAO();
+        $data = $user->listarUsuarios();
         include 'view/GarzonView/modificar.php';
         $content = ob_get_clean();
         //Termino carga de bufer, se almacena todo en variable $content
@@ -66,9 +69,13 @@ class GarzonController extends CoreController {
         $garzon->setUser($user);
         $garzonDao = new GarzonDAO();
 
-        $garzonDao->addGarzon($garzon);
+        if(!$garzonDao->addGarzon($garzon)){
+            echo '<script language="javascript">alert("Garzón No Agregado (Usuario ocupado)");</script>';
+            $this->agregarGarzon();
+        }else{
         echo '<script language="javascript">alert("Garzón Agregado Correctamente");</script>';
         $this->listarGarzones();
+        }
 
 
 
@@ -92,7 +99,9 @@ class GarzonController extends CoreController {
         $user->setId($_POST['user']);
         $garzon->setUser($user);
         $garzonDao = new GarzonDAO();
-        $garzonDao->editGarzon($garzon);
+        if(!$garzonDao->editGarzon($garzon)){
+            echo '<script language="javascript">alert("Garzón No editado (Usuario ya esta ocupado)");</script>';
+        }
         $this->listarGarzones();
 
 

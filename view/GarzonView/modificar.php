@@ -73,7 +73,7 @@
                                         <select id="user" name="user" class="form-control">
                                             <option value="<?php echo $garzon->getUser()->getId(); ?>"><?php echo $garzon->getUser()->getName(); ?></option>
                                             <?php foreach ($data as $user): ?>
-                                                <?php if ($user->getId() != $garzon->getUser()->getId()) { ?>
+                                                <?php if ($user->getId() != $garzon->getUser()->getId() and ($user->getRol()->getName() == 'Garzon')) { ?>
                                                     <option value="<?php echo $user->getId(); ?>"><?php echo $user->getName(); ?></option>
                                                 <?php } ?>   
                                             <?php endforeach; ?> 

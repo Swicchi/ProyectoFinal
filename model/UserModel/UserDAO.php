@@ -55,7 +55,7 @@ class UserDAO extends conexionDB{
              $userrole->setName($tsArray['name']);
              $user->setRol($userrole);
              $user->setUserPass($tsArray['password']);
-             
+             $this->disconnect();
         return $user;
     }
   //conexion a la base de datos

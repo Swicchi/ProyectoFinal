@@ -104,7 +104,7 @@ class OrdenController extends CoreController {
         $orden->setHoraEntrega(date('Y-m-d G:i:s'));
         $ordenDao = new OrdenDAO();
         $ordenDao->actOrdenGarzon($orden);
-        $this->listarOrdenesGarzon();
+        $this->listarOrdenesGarzon($_SESSION['username']);
 
 
         //Se muestra la pagina
@@ -114,7 +114,7 @@ class OrdenController extends CoreController {
         $orden->setNumero($_GET['id']);
         $ordenDao = new OrdenDAO();
         $ordenDao->confirmarOrden($orden);
-        $this->listarOrdenesGarzon();
+        $this->listarOrdenesGarzon($_SESSION['username']);
 
 
         //Se muestra la pagina

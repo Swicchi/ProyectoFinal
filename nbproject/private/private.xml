@@ -5,11 +5,14 @@
         <group>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/controller/OrdenController.php</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/view/BebidaView/modificar.php</file>
+            <file>file:/C:/xampp/htdocs/ProyectoFinal/model/GarzonModel/GarzonDAO.php</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/view/GarzonView/listar.php</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/view/BebidaView/agregar.php</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/controller/GarzonController.php</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/controller/AlimentoController.php</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/view/UserView/modificar.php</file>
+            <file>file:/C:/xampp/htdocs/ProyectoFinal/model/UserModel/UserDAO.php</file>
+            <file>file:/C:/xampp/htdocs/ProyectoFinal/model/AlimentoModel/AlimentoDAO.php</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/view/BebidaView/listar.php</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/view/AlimentoView/listarCocina.php</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/controller/SiteController.php</file>
@@ -29,6 +32,7 @@
             <file>file:/C:/xampp/htdocs/ProyectoFinal/view/MesaView/modificar.php</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/view/main.php</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/view/PlatoView/modificar.php</file>
+            <file>file:/C:/xampp/htdocs/ProyectoFinal/index.php</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/view/UserView/agregar.php</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/controller/UserController.php</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/view/layout.php</file>
@@ -39,7 +43,9 @@
             <file>file:/C:/xampp/htdocs/ProyectoFinal/view/index.html</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/view/PlatoView/listar.php</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/view/AlimentoView/modificar.php</file>
+            <file>file:/C:/xampp/htdocs/ProyectoFinal/model/MesaModel/MesaDAO.php</file>
             <file>file:/C:/xampp/htdocs/ProyectoFinal/view/MesaView/listar.php</file>
+            <file>file:/C:/xampp/htdocs/ProyectoFinal/model/OrdenModel/OrdenDAO.php</file>
         </group>
     </open-files>
 </project-private>
